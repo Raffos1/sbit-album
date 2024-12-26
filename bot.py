@@ -55,12 +55,19 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Cerca l'immagine corrispondente
     image_path = os.path.join(IMAGES_DIR, f"{card}.png")
     if os.path.isfile(image_path):
-        # Invia il messaggio con immagine
-        await context.bot.send_photo(
-            chat_id=update.effective_chat.id,
-            photo=InputFile(image_path),
-            caption=f"🎉 {user.first_name}, hai ottenuto una carta {rarity.upper()}:\n✨ **{card}** ✨!"
-        )
+        try:
+            # Invia il messaggio con immagine
+            await context.bot.send_photo(
+                chat_id=update.effective_chat.id,
+                photo=open(image_path, "rb"),
+                caption=f"🎉 {user.first_name}, hai ottenuto una carta {rarity.upper()}:\n✨ **{card}** ✨!"
+            )
+        except Exception as e:
+            # Gestisci eventuali errori durante l'invio
+            await update.message.reply_text(
+                f"Errore durante l'invio dell'immagine: {str(e)}\n"
+                f"Hai ottenuto una carta {rarity.upper()}:\n✨ **{card}** ✨!"
+            )
     else:
         # Invia solo il messaggio testuale
         await update.message.reply_text(
