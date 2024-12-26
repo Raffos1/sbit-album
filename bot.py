@@ -48,6 +48,7 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     }
 
     media = []  # Lista per memorizzare le immagini da inviare
+    collected_cards = set()  # Set per tenere traccia delle carte già estratte (per messaggio)
 
     for _ in range(5):
         roll = random.randint(1, 100)
@@ -72,11 +73,14 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             await update.message.reply_text(f"Il file {file_path} non è stato trovato.", parse_mode="Markdown")
             return
 
-        # Scegli una carta casuale e aggiungi alla lista delle carte estratte
+        # Scegli una carta casuale
         card = random.choice(cards).strip()
         drawn_cards[rarity].append(card)
 
-        # Aggiungi la carta alla collezione dell'utente
+        # Aggiungi la carta al set per il messaggio (duplicati permessi nel messaggio)
+        collected_cards.add(card)
+
+        # Aggiungi la carta alla collezione dell'utente se non è già presente
         collection = get_user_collection(user_id)
         collection[rarity].add(card)
 
@@ -89,16 +93,20 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         if os.path.exists(image_path):
             media.append(InputMediaPhoto(open(image_path, 'rb')))
 
-    # Invia il messaggio con tutte le 5 carte estratte
+    # Costruisci il messaggio con le carte estratte, includendo duplicati
     message = f"🎉 {user.first_name}, hai ottenuto 5 carte!\n\n"
     for rarity, cards in drawn_cards.items():
-        message += f"\n{rarity.upper()}:\n" + "\n".join([f"✨ **{card}**" for card in cards])
+        message += f"\n**{rarity.upper()}**:\n"
+        for card in cards:
+            if card in collected_cards:
+                message += f"✨ **{card}** (Duplicato!)\n"
 
-    # Invia il messaggio di testo con le immagini allegate
+    # Invia prima il messaggio con il testo delle carte
+    await update.message.reply_text(message, parse_mode="Markdown")
+
+    # Invia le immagini come gruppo separato
     if media:
         await update.message.reply_media_group(media)
-    else:
-        await update.message.reply_text(message, parse_mode="Markdown")
 
 async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /collezione per visualizzare tutte le carte raccolte."""
