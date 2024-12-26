@@ -1,4 +1,4 @@
-from telegram import Update
+from telegram import Update, InputFile
 from telegram.ext import Application, CommandHandler, ContextTypes
 import os
 import random
@@ -18,6 +18,9 @@ RARITY_PROBABILITIES = {
     "epica": 5,
     "leggendaria": 2
 }
+
+# Directory delle immagini
+IMAGES_DIR = "immagini"
 
 async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /apri per aprire una figurina."""
@@ -49,10 +52,20 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Scegli una carta casuale
     card = random.choice(cards).strip()
 
-    # Invia la risposta all'utente
-    await update.message.reply_text(
-        f"🎉 {user.first_name}, hai ottenuto una carta {rarity.upper()}:\n✨ **{card}** ✨!"
-    )
+    # Cerca l'immagine corrispondente
+    image_path = os.path.join(IMAGES_DIR, f"{card}.png")
+    if os.path.isfile(image_path):
+        # Invia il messaggio con immagine
+        await context.bot.send_photo(
+            chat_id=update.effective_chat.id,
+            photo=InputFile(image_path),
+            caption=f"🎉 {user.first_name}, hai ottenuto una carta {rarity.upper()}:\n✨ **{card}** ✨!"
+        )
+    else:
+        # Invia solo il messaggio testuale
+        await update.message.reply_text(
+            f"🎉 {user.first_name}, hai ottenuto una carta {rarity.upper()}:\n✨ **{card}** ✨!"
+        )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Usa il comando /start per iniziare!"""
@@ -66,7 +79,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
         "🎴 **Comandi disponibili:**\n"
         "- /apri: Scopri quale carta ottieni!\n"
-        "- /bash: Iscriviti al **Raffo's Birthday Bash**!\n"
+        "- /bash: Iscriviti al Raffo's Birthday Bash!\n"
         "- /about: Informazioni sul bot.\n"
         "- /help: Mostra questo messaggio di aiuto.\n\n"
         "Buona fortuna con la tua collezione! 🌟"
@@ -75,17 +88,19 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def bash(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /bash per linkare l'evento."""
     await update.message.reply_text(
-        "🎉 **Iscriviti al Raffo's Birthday Bash!** 🎂\n"
-        "📅 **700 Euro di Prizepool**, cena gratis e tanto altro!\n"
+        "🎂 Iscriviti al Raffo's Birthday Bash! :D\n"
+        "📅 700 Euro di Prizepool, Cena gratis e tanti altro!\n"
+        "🤯 Confermati all'evento M4E, Meercko, y0lT, GANDIX, Paky e molti altri!\n"
         "Non perdere questo evento unico nel suo genere!\n\n"
-        "👉 [Clicca qui per registrarti!](https://start.gg/raffos)"
+        "👉 Clicca qui per registrarti! https://start.gg/raffos"
     )
 
 async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /about per informazioni sul bot."""
     await update.message.reply_text(
-        "🤖 Questo bot è stato creato da **@Raffosbaffos**!\n"
-        "Per qualsiasi problema o suggerimento, contattalo direttamente. 😊"
+        "Questo bot è stato creato da @Raffosbaffos!\n"
+        "Il mio canale è @raffobaffoland!\n"        
+        "Per qualsiasi problema, contattatemi direttamente! :D"
     )
 
 def main():
