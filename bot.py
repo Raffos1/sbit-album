@@ -50,13 +50,42 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     card = random.choice(cards).strip()
 
     # Invia la risposta all'utente
-    await update.message.reply_text(f"🎉 {user.first_name}, hai ottenuto una carta {rarity.upper()}: {card}!")
+    await update.message.reply_text(
+        f"🎉 {user.first_name}, hai ottenuto una carta {rarity.upper()}:\n✨ **{card}** ✨!"
+    )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /start per iniziare."""
+    """Usa il comando /start per iniziare!"""
     await update.message.reply_text(
-        "🎴 Benvenuto nel Bot Raccolta Figurine!\n"
-        "Usa /apri per scoprire quale carta ottieni!"
+        "🎴 Benvenuto nel Bot Raccolta Figurine di SBIT!\n"
+        "Usa /apri per scoprire quale carta ottieni, oppure /help per scoprire tutti i comandi!"
+    )
+
+async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Usa il comando /help per sapere tutto quello che c'è da sapere!"""
+    await update.message.reply_text(
+        "🎴 **Comandi disponibili:**\n"
+        "- /apri: Scopri quale carta ottieni!\n"
+        "- /bash: Iscriviti al **Raffo's Birthday Bash**!\n"
+        "- /about: Informazioni sul bot.\n"
+        "- /help: Mostra questo messaggio di aiuto.\n\n"
+        "Buona fortuna con la tua collezione! 🌟"
+    )
+
+async def bash(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /bash per linkare l'evento."""
+    await update.message.reply_text(
+        "🎉 **Iscriviti al Raffo's Birthday Bash!** 🎂\n"
+        "📅 **700 Euro di Prizepool**, cena gratis e tanto altro!\n"
+        "Non perdere questo evento unico nel suo genere!\n\n"
+        "👉 [Clicca qui per registrarti!](https://start.gg/raffos)"
+    )
+
+async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /about per informazioni sul bot."""
+    await update.message.reply_text(
+        "🤖 Questo bot è stato creato da **@Raffosbaffos**!\n"
+        "Per qualsiasi problema o suggerimento, contattalo direttamente. 😊"
     )
 
 def main():
@@ -76,6 +105,9 @@ def main():
     # Aggiungi i comandi
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("apri", apri))
+    application.add_handler(CommandHandler("help", help))
+    application.add_handler(CommandHandler("bash", bash))
+    application.add_handler(CommandHandler("about", about))
 
     # Configura il webhook (modifica l'URL del webhook)
     application.run_webhook(
