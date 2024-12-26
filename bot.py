@@ -1,4 +1,4 @@
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQueryHandler
 import os
 import random
@@ -35,7 +35,7 @@ def get_user_collection(user_id):
     return user_collections[user_id]
 
 async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /apri per aprire 5 figurine."""
+    """Comando /apri per aprire 5 figurine e allegare le immagini se esistono."""
     user = update.effective_user
     user_id = user.id
 
@@ -46,6 +46,8 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "epica": [],
         "leggendaria": []
     }
+
+    media = []  # Lista per memorizzare le immagini da inviare
 
     for _ in range(5):
         roll = random.randint(1, 100)
@@ -78,12 +80,25 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         collection = get_user_collection(user_id)
         collection[rarity].add(card)
 
+        # Verifica se esiste un'immagine associata alla carta
+        image_path = os.path.join("immagini", f"{card}.png")
+        if not os.path.exists(image_path):
+            image_path = os.path.join("immagini", f"{card}.jpg")
+
+        # Se l'immagine esiste, aggiungila alla lista dei media
+        if os.path.exists(image_path):
+            media.append(InputMediaPhoto(open(image_path, 'rb')))
+
     # Invia il messaggio con tutte le 5 carte estratte
     message = f"🎉 {user.first_name}, hai ottenuto 5 carte!\n\n"
     for rarity, cards in drawn_cards.items():
         message += f"\n{rarity.upper()}:\n" + "\n".join([f"✨ **{card}**" for card in cards])
 
-    await update.message.reply_text(message, parse_mode="Markdown")
+    # Invia il messaggio di testo con le immagini allegate
+    if media:
+        await update.message.reply_media_group(media)
+    else:
+        await update.message.reply_text(message, parse_mode="Markdown")
 
 async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /collezione per visualizzare tutte le carte raccolte."""
@@ -134,7 +149,7 @@ async def cancellacollezione(update: Update, context: ContextTypes.DEFAULT_TYPE)
     else:
         # Inizia la procedura di cancellazione
         pending_deletion[user_id] = True
-        await update.message.reply_text("Sei sicuro di voler cancellare la tua collezione? Clicca su uno dei pulsanti per confermare o annullare.", parse_mode="Markdown")
+        await update.message.reply_text("Sei sicuro di voler cancellare la tua collezione? Scrivi di nuovo il comando, poi Clicca su uno dei pulsanti per confermare o annullare.", parse_mode="Markdown")
 
 # Gestore della conferma della cancellazione
 async def handle_deletion_confirmation(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
