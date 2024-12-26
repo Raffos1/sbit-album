@@ -31,10 +31,14 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 def main():
     """Avvia il bot."""
-    # Token del bot (usa una variabile d'ambiente per maggiore sicurezza)
-    TOKEN = os.environ.get("TELEGRAM_TOKEN")  # Configura questa variabile su Render
+    # Token e URL del webhook
+    TOKEN = os.environ.get("TELEGRAM_TOKEN")
     if not TOKEN:
         raise RuntimeError("TELEGRAM_TOKEN non configurato!")
+    
+    APP_URL = os.environ.get("APP_URL")
+    if not APP_URL:
+        raise RuntimeError("APP_URL non configurato!")
 
     # Crea l'applicazione
     application = Application.builder().token(TOKEN).build()
@@ -43,8 +47,12 @@ def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("gacha", gacha))
 
-    # Avvia il polling
-    application.run_polling()
+    # Configura il webhook
+    application.run_webhook(
+        listen="0.0.0.0",
+        port=int(os.environ.get("PORT", 8443)),
+        webhook_url=f"{APP_URL}/{TOKEN}"
+    )
 
 if __name__ == "__main__":
     main()
