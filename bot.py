@@ -1,5 +1,5 @@
 from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext
+from telegram.ext import Application, CommandHandler, ContextTypes
 import os
 import random
 
@@ -10,7 +10,7 @@ gacha_items = {
     "🔹 Common Item 🔹": 75      # 75% di probabilità
 }
 
-def gacha(update: Update, context: CallbackContext) -> None:
+async def gacha(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /gacha per fare un'estrazione."""
     user = update.effective_user
     roll = random.randint(1, 100)  # Numero casuale tra 1 e 100
@@ -18,31 +18,33 @@ def gacha(update: Update, context: CallbackContext) -> None:
     for item, chance in gacha_items.items():
         total += chance
         if roll <= total:
-            update.message.reply_text(f"🎉 {user.first_name}, hai ottenuto: {item}!")
+            await update.message.reply_text(f"🎉 {user.first_name}, hai ottenuto: {item}!")
             return
-    update.message.reply_text("Oh no, nessun premio questa volta! 😢")
+    await update.message.reply_text("Oh no, nessun premio questa volta! 😢")
 
-def start(update: Update, context: CallbackContext) -> None:
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /start per iniziare."""
-    update.message.reply_text(
+    await update.message.reply_text(
         "🎰 Benvenuto nel Gacha Bot!\n"
         "Usa /gacha per fare un'estrazione e scoprire cosa ottieni!"
     )
 
 def main():
     """Avvia il bot."""
-    # Token del bot (dal sistema)
-    TOKEN = "7738376099:AAEUYsk7rBblS2FVv6IoLPwVyCDHG_XHStc"
-    updater = Updater(TOKEN)
-    dispatcher = updater.dispatcher
+    # Token del bot (usa una variabile d'ambiente per maggiore sicurezza)
+    TOKEN = os.environ.get("TELEGRAM_TOKEN")  # Configura questa variabile su Render
+    if not TOKEN:
+        raise RuntimeError("TELEGRAM_TOKEN non configurato!")
+
+    # Crea l'applicazione
+    application = Application.builder().token(TOKEN).build()
 
     # Aggiungi i comandi
-    dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(CommandHandler("gacha", gacha))
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("gacha", gacha))
 
     # Avvia il polling
-    updater.start_polling()
-    updater.idle()
+    application.run_polling()
 
 if __name__ == "__main__":
     main()
