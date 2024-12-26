@@ -21,6 +21,7 @@ RARITY_PROBABILITIES = {
 
 # Memorizzazione della collezione dell'utente
 user_collections = {}
+pending_deletion = {}
 
 def get_user_collection(user_id):
     """Restituisce la collezione dell'utente, o una nuova se non esiste."""
@@ -91,14 +92,47 @@ async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     collection = get_user_collection(user_id)
 
     message = f"🌟 **Collezione di {user.first_name}:**\n\n"
-
     for rarity, cards in collection.items():
-        message += f"\n**{rarity.upper()}:**\n" + "\n".join([f"✨ {card}" for card in cards]) + "\n"
+        if cards:
+            # Leggi le carte dal file e ordina in base all'ordine del file
+            file_path = CARD_FILES[rarity]
+            try:
+                with open(file_path, "r") as f:
+                    all_cards = f.readlines()
+            except FileNotFoundError:
+                await update.message.reply_text(f"Il file {file_path} non è stato trovato.", parse_mode="Markdown")
+                return
+
+            # Ordina le carte nella collezione in base all'ordine nel file
+            sorted_cards = sorted(cards, key=lambda card: all_cards.index(f"{card}\n"))
+
+            message += f"\n**{rarity.upper()}:**\n" + "\n".join([f"✨ {card}" for card in sorted_cards]) + "\n"
 
     if not any(collection.values()):
         message = f"{user.first_name}, non hai ancora raccolto nessuna carta. Usa /apri per iniziare!"
 
     await update.message.reply_text(message, parse_mode="Markdown")
+
+async def cancellacollezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /cancellacollezione per cancellare la collezione dell'utente."""
+    user = update.effective_user
+    user_id = user.id
+
+    # Se l'utente ha già avviato il processo di cancellazione, chiediamo la conferma
+    if user_id in pending_deletion:
+        if update.message.text.lower() == "sono sicuro.":
+            # Cancella la collezione
+            del user_collections[user_id]
+            del pending_deletion[user_id]
+            await update.message.reply_text("La tua collezione è stata cancellata con successo!", parse_mode="Markdown")
+        else:
+            # Annulla l'operazione
+            del pending_deletion[user_id]
+            await update.message.reply_text("Operazione annullata.", parse_mode="Markdown")
+    else:
+        # Inizia la procedura di cancellazione
+        pending_deletion[user_id] = True
+        await update.message.reply_text("Sei sicuro di voler cancellare la tua collezione? Scrivi 'sono sicuro.' per confermare.", parse_mode="Markdown")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Usa il comando /start per iniziare!"""
@@ -114,6 +148,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "🎴 **Comandi disponibili:**\n"
         "- /apri: Scopri quali carte ottieni!\n"
         "- /collezione: Visualizza le carte che hai raccolto!\n"
+        "- /cancellacollezione: Cancella la tua collezione (con conferma).\n"
         "- /bash: Iscriviti al Raffo's Birthday Bash!\n"
         "- /about: Informazioni sul bot.\n"
         "- /help: Mostra questo messaggio di aiuto.\n\n"
@@ -161,6 +196,7 @@ def main():
     application.add_handler(CommandHandler("bash", bash))
     application.add_handler(CommandHandler("about", about))
     application.add_handler(CommandHandler("collezione", collezione))
+    application.add_handler(CommandHandler("cancellacollezione", cancellacollezione))
 
     # Configura il webhook (modifica l'URL del webhook)
     application.run_webhook(
