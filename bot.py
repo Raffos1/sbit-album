@@ -13,10 +13,10 @@ CARD_FILES = {
 
 # Probabilità per le rarità (in percentuale)
 RARITY_PROBABILITIES = {
-    "comune": 78,
+    "comune": 2,
     "rara": 15,
     "epica": 5,
-    "leggendaria": 2
+    "leggendaria": 78
 }
 
 # Directory delle immagini
