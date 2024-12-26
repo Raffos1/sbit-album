@@ -1,5 +1,5 @@
-from telegram import Update
-from telegram.ext import Application, CommandHandler, ContextTypes
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQueryHandler
 import os
 import random
 
@@ -118,21 +118,39 @@ async def cancellacollezione(update: Update, context: ContextTypes.DEFAULT_TYPE)
     user = update.effective_user
     user_id = user.id
 
-    # Se l'utente ha già avviato il processo di cancellazione, chiediamo la conferma
+    # Se l'utente ha già avviato il processo di cancellazione, chiediamo la conferma con inline button
     if user_id in pending_deletion:
-        if update.message.text.lower() == "sono sicuro.":
-            # Cancella la collezione
-            del user_collections[user_id]
-            del pending_deletion[user_id]
-            await update.message.reply_text("La tua collezione è stata cancellata con successo!", parse_mode="Markdown")
-        else:
-            # Annulla l'operazione
-            del pending_deletion[user_id]
-            await update.message.reply_text("Operazione annullata.", parse_mode="Markdown")
+        keyboard = [
+            [InlineKeyboardButton("Sono Sicuro", callback_data="confirm_deletion")],
+            [InlineKeyboardButton("Annulla", callback_data="cancel_deletion")]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await update.message.reply_text(
+            "Sei sicuro di voler cancellare la tua collezione? Questa azione è irreversibile.",
+            reply_markup=reply_markup
+        )
+        del pending_deletion[user_id]  # Cancella lo stato in attesa
     else:
         # Inizia la procedura di cancellazione
         pending_deletion[user_id] = True
-        await update.message.reply_text("Sei sicuro di voler cancellare la tua collezione? Scrivi 'sono sicuro.' per confermare.", parse_mode="Markdown")
+        await update.message.reply_text("Sei sicuro di voler cancellare la tua collezione? Clicca su uno dei pulsanti per confermare o annullare.", parse_mode="Markdown")
+
+# Gestore della conferma della cancellazione
+async def handle_deletion_confirmation(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Gestisce la conferma della cancellazione della collezione."""
+    query = update.callback_query
+    await query.answer()
+
+    user = update.effective_user
+    user_id = user.id
+
+    if query.data == "confirm_deletion":
+        # Cancella la collezione dell'utente
+        del user_collections[user_id]
+        await query.edit_message_text("La tua collezione è stata cancellata con successo!")
+    else:
+        await query.edit_message_text("Operazione annullata.")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Usa il comando /start per iniziare!"""
@@ -197,6 +215,9 @@ def main():
     application.add_handler(CommandHandler("about", about))
     application.add_handler(CommandHandler("collezione", collezione))
     application.add_handler(CommandHandler("cancellacollezione", cancellacollezione))
+
+    # Gestore per la conferma della cancellazione
+    application.add_handler(CallbackQueryHandler(handle_deletion_confirmation, pattern="^(confirm_deletion|cancel_deletion)$"))
 
     # Configura il webhook (modifica l'URL del webhook)
     application.run_webhook(
