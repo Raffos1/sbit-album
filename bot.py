@@ -2,6 +2,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 import os
 import random
+import json
 
 # File delle carte organizzati per rarità
 CARD_FILES = {
@@ -13,15 +14,36 @@ CARD_FILES = {
 
 # Probabilità per le rarità (in percentuale)
 RARITY_PROBABILITIES = {
-    "comune": 2,
+    "comune": 78,
     "rara": 15,
     "epica": 5,
-    "leggendaria": 78
+    "leggendaria": 2
 }
 
+# Collezione utenti
+user_collections = {}
+
+# Funzione per caricare le collezioni degli utenti (se si usa un file JSON per persistere i dati)
+def load_collections():
+    global user_collections
+    if os.path.exists("user_collections.json"):
+        with open("user_collections.json", "r") as f:
+            user_collections = json.load(f)
+
+# Funzione per salvare le collezioni degli utenti
+def save_collections():
+    with open("user_collections.json", "w") as f:
+        json.dump(user_collections, f)
+
+# Comando per aprire una figurina
 async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /apri per aprire una figurina."""
     user = update.effective_user
+    user_id = str(user.id)  # Usa l'ID dell'utente per identificare la collezione
+
+    # Verifica se l'utente ha già una collezione
+    if user_id not in user_collections:
+        user_collections[user_id] = []
 
     # Determina la rarità
     roll = random.randint(1, 100)
@@ -48,6 +70,15 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     # Scegli una carta casuale
     card = random.choice(cards).strip()
+
+    # Verifica se l'utente ha già questa carta
+    if card in user_collections[user_id]:
+        await update.message.reply_text(f"🎉 {user.first_name}, hai già questa carta!\n✨ **{card}** ✨", parse_mode="Markdown")
+        return
+
+    # Aggiungi la carta alla collezione dell'utente
+    user_collections[user_id].append(card)
+    save_collections()  # Salva la collezione aggiornata
 
     # Path per l'immagine della carta
     image_path = os.path.join("immagini", f"{card}.png")
@@ -116,6 +147,9 @@ async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 def main():
     """Avvia il bot."""
+    # Carica le collezioni esistenti
+    load_collections()
+
     # Token e URL del webhook
     TOKEN = os.environ.get("TELEGRAM_TOKEN")
     if not TOKEN:
