@@ -1,5 +1,5 @@
-from telegram import Update
-from telegram.ext import Application, CommandHandler, ContextTypes
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQueryHandler
 import os
 import random
 
@@ -19,162 +19,141 @@ RARITY_PROBABILITIES = {
     "leggendaria": 2
 }
 
-# Memorizzazione della collezione dell'utente
-user_collections = {}
-pending_deletion = {}
-
+# Funzione per ottenere la collezione dell'utente (modificata per esempio)
 def get_user_collection(user_id):
-    """Restituisce la collezione dell'utente, o una nuova se non esiste."""
-    if user_id not in user_collections:
-        user_collections[user_id] = {
-            "comune": set(),
-            "rara": set(),
-            "epica": set(),
-            "leggendaria": set()
-        }
-    return user_collections[user_id]
+    # Qui aggiungi il codice per recuperare la collezione dell'utente, per esempio da un database o file
+    return {
+        "comune": ["Terrons Crew", "Yggi", "Syntherface"],
+        "rara": ["y0lT ICARUS 2024"],
+        "epica": [],
+        "leggendaria": []
+    }
 
-async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /apri per aprire 5 figurine."""
+# Funzione per cancellare la collezione dell'utente
+def delete_user_collection(user_id):
+    # Qui aggiungi il codice per cancellare la collezione dell'utente, per esempio dal database o file
+    pass
+
+# Comando /sbusta (modificato per aprire un pacchetto di figurine)
+async def sbusta(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /sbusta per aprire un pacchetto di figurine."""
     user = update.effective_user
-    user_id = user.id
 
-    # Determina le 5 rarità
-    drawn_cards = {
+    # Determina la rarità
+    cards_pulled = {
         "comune": [],
         "rara": [],
         "epica": [],
         "leggendaria": []
     }
 
-    for _ in range(5):
+    for r, probability in RARITY_PROBABILITIES.items():
         roll = random.randint(1, 100)
-        cumulative = 0
-        rarity = None
-        for r, probability in RARITY_PROBABILITIES.items():
-            cumulative += probability
-            if roll <= cumulative:
-                rarity = r
-                break
-
-        if rarity is None:
-            await update.message.reply_text("Errore nel calcolo della rarità.", parse_mode="Markdown")
-            return
-
-        # Leggi il file della rarità selezionata
-        file_path = CARD_FILES[rarity]
-        try:
-            with open(file_path, "r") as f:
-                cards = f.readlines()
-        except FileNotFoundError:
-            await update.message.reply_text(f"Il file {file_path} non è stato trovato.", parse_mode="Markdown")
-            return
-
-        # Scegli una carta casuale e aggiungi alla lista delle carte estratte
-        card = random.choice(cards).strip()
-        drawn_cards[rarity].append(card)
-
-        # Aggiungi la carta alla collezione dell'utente
-        collection = get_user_collection(user_id)
-        collection[rarity].add(card)
-
-    # Invia il messaggio con tutte le 5 carte estratte
-    message = f"🎉 {user.first_name}, hai ottenuto 5 carte!\n\n"
-    for rarity, cards in drawn_cards.items():
-        message += f"\n{rarity.upper()}:\n" + "\n".join([f"✨ **{card}**" for card in cards])
-
-    await update.message.reply_text(message, parse_mode="Markdown")
-
-async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /collezione per visualizzare tutte le carte raccolte."""
-    user = update.effective_user
-    user_id = user.id
-    collection = get_user_collection(user_id)
-
-    message = f"🌟 **Collezione di {user.first_name}:**\n\n"
-    for rarity, cards in collection.items():
-        if cards:
-            # Leggi le carte dal file e ordina in base all'ordine del file
-            file_path = CARD_FILES[rarity]
+        if roll <= probability:
+            file_path = CARD_FILES[r]
             try:
                 with open(file_path, "r") as f:
-                    all_cards = f.readlines()
+                    cards = f.readlines()
+                card = random.choice(cards).strip()
+                cards_pulled[r].append(card)
             except FileNotFoundError:
                 await update.message.reply_text(f"Il file {file_path} non è stato trovato.", parse_mode="Markdown")
                 return
 
-            # Ordina le carte nella collezione in base all'ordine nel file
-            sorted_cards = sorted(cards, key=lambda card: all_cards.index(f"{card}\n"))
+    # Costruzione del resoconto
+    message = f"🎉 {user.first_name}, hai aperto un pacchetto! Ecco cosa hai trovato:\n\n"
+    for rarity, pulled_cards in cards_pulled.items():
+        if pulled_cards:
+            message += f"**{rarity.upper()}**:\n"
+            for card in pulled_cards:
+                message += f"✨ {card}\n"
+            message += "\n"
 
-            message += f"\n**{rarity.upper()}:**\n" + "\n".join([f"✨ {card}" for card in sorted_cards]) + "\n"
+    # Invia il messaggio del pacchetto
+    await update.message.reply_text(message, parse_mode="Markdown")
 
-    if not any(collection.values()):
-        message = f"{user.first_name}, non hai ancora raccolto nessuna carta. Usa /apri per iniziare!"
+# Comando /collezione (modificato per non visualizzare rarità vuote)
+async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /collezione per visualizzare le carte raccolte."""
+    user = update.effective_user
+    user_collezione = get_user_collection(user.id)
+
+    message = f"🌟 Collezione di {user.first_name}:\n\n"
+
+    for rarity, cards in user_collezione.items():
+        if cards:
+            message += f"**{rarity.upper()}**:\n"
+            for card in cards:
+                message += f"✨ {card}\n"
+            message += "\n"
+
+    # Se la collezione è vuota, mostra un messaggio che non ci sono carte
+    if not message.endswith("\n\n"):
+        message += "Non hai ancora collezionato carte!\n"
 
     await update.message.reply_text(message, parse_mode="Markdown")
 
+# Comando /cancellacollezione (con bottoni inline per conferma)
 async def cancellacollezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /cancellacollezione per cancellare la collezione dell'utente."""
+    """Comando /cancellacollezione per cancellare la collezione."""
     user = update.effective_user
-    user_id = user.id
+    keyboard = [
+        [InlineKeyboardButton("Sono Sicuro", callback_data="confirm_deletion")],
+        [InlineKeyboardButton("No", callback_data="cancel_deletion")]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
 
-    # Se l'utente ha già avviato il processo di cancellazione, chiediamo la conferma
-    if user_id in pending_deletion:
-        if update.message.text.lower() == "sono sicuro.":
-            # Cancella la collezione
-            del user_collections[user_id]
-            del pending_deletion[user_id]
-            await update.message.reply_text("La tua collezione è stata cancellata con successo!", parse_mode="Markdown")
-        else:
-            # Annulla l'operazione
-            del pending_deletion[user_id]
-            await update.message.reply_text("Operazione annullata.", parse_mode="Markdown")
+    await update.message.reply_text(
+        "Sei sicuro di voler cancellare la tua collezione? Questa azione è irreversibile.",
+        reply_markup=reply_markup
+    )
+
+# Gestore della conferma della cancellazione
+async def handle_deletion_confirmation(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Gestisce la conferma della cancellazione della collezione."""
+    query = update.callback_query
+    await query.answer()
+
+    if query.data == "confirm_deletion":
+        user = update.effective_user
+        # Cancelliamo la collezione dell'utente
+        delete_user_collection(user.id)
+        await query.edit_message_text("La tua collezione è stata cancellata. Riparti da zero!")
     else:
-        # Inizia la procedura di cancellazione
-        pending_deletion[user_id] = True
-        await update.message.reply_text("Sei sicuro di voler cancellare la tua collezione? Scrivi 'sono sicuro.' per confermare.", parse_mode="Markdown")
+        await query.edit_message_text("Operazione annullata.")
 
+# Funzione per il comando /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Usa il comando /start per iniziare!"""
     await update.message.reply_text(
         "🎴 Benvenuto nel Bot Raccolta Figurine di SBIT!\n"
-        "Usa /apri per scoprire quali carte ottieni, oppure /help per scoprire tutti i comandi!",
+        "Usa /sbusta per scoprire quale carta ottieni, oppure /help per scoprire tutti i comandi!",
         parse_mode="Markdown"
     )
 
+# Funzione per il comando /help
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Usa il comando /help per sapere tutto quello che c'è da sapere!"""
     await update.message.reply_text(
         "🎴 **Comandi disponibili:**\n"
-        "- /apri: Scopri quali carte ottieni!\n"
-        "- /collezione: Visualizza le carte che hai raccolto!\n"
-        "- /cancellacollezione: Cancella la tua collezione (con conferma).\n"
-        "- /bash: Iscriviti al Raffo's Birthday Bash!\n"
-        "- /about: Informazioni sul bot.\n"
+        "- /sbusta: Scopri quale carta ottieni!\n"
+        "- /cancellacollezione: Cancella la tua collezione e riparti da zero.\n"
+        "- /collezione: Visualizza la tua collezione di carte.\n"
         "- /help: Mostra questo messaggio di aiuto.\n\n"
         "Buona fortuna con la tua collezione! 🌟",
         parse_mode="Markdown"
     )
 
-async def bash(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /bash per linkare l'evento."""
-    await update.message.reply_text(
-        "🎂 **Iscriviti al Raffo's Birthday Bash!** 🎉\n"
-        "📅 *700 Euro di Prizepool, Cena gratis e tanto altro!*\n"
-        "🤯 *Confermati all'evento: M4E, Meercko, y0lT, GANDIX, Paky e molti altri!*\n"
-        "Non perdere questo evento unico nel suo genere!\n\n"
-        "👉 [Clicca qui per registrarti!](https://start.gg/raffos)",
-        parse_mode="Markdown"
-    )
-
+# Funzione per il comando /about
 async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /about per informazioni sul bot."""
+    """Usa il comando /about per informazioni sul bot."""
     await update.message.reply_text(
         "Questo bot è stato creato da [@Raffosbaffos](https://t.me/Raffosbaffos)!\n"
         "Per qualsiasi problema, contattatemi direttamente! :D",
         parse_mode="Markdown"
     )
 
+# Funzione principale per avviare il bot
 def main():
     """Avvia il bot."""
     # Token e URL del webhook
@@ -191,19 +170,14 @@ def main():
 
     # Aggiungi i comandi
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("apri", apri))
     application.add_handler(CommandHandler("help", help))
-    application.add_handler(CommandHandler("bash", bash))
-    application.add_handler(CommandHandler("about", about))
+    application.add_handler(CommandHandler("sbusta", sbusta))  # Modificato qui da /apri a /sbusta
     application.add_handler(CommandHandler("collezione", collezione))
     application.add_handler(CommandHandler("cancellacollezione", cancellacollezione))
+    application.add_handler(CallbackQueryHandler(handle_deletion_confirmation, pattern="^(confirm_deletion|cancel_deletion)$"))
 
-    # Configura il webhook (modifica l'URL del webhook)
-    application.run_webhook(
-        listen="0.0.0.0",
-        port=int(os.environ.get("PORT", 8443)),
-        webhook_url=f"{APP_URL}/"
-    )
+    # Avvia il polling
+    application.run_polling()
 
 if __name__ == "__main__":
     main()
