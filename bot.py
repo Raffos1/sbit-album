@@ -47,11 +47,11 @@ def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("gacha", gacha))
 
-    # Configura il webhook
+    # Configura il webhook (modifica l'URL del webhook)
     application.run_webhook(
         listen="0.0.0.0",
         port=int(os.environ.get("PORT", 8443)),
-        webhook_url=f"{APP_URL}/{TOKEN}"
+        webhook_url=f"{APP_URL}/"
     )
 
 if __name__ == "__main__":
