@@ -3,6 +3,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQuer
 import os
 import random
 import json
+from datetime import datetime, timedelta
 
 # File delle carte organizzati per rarità
 CARD_FILES = {
@@ -45,7 +46,7 @@ def load_cards():
 
 CARDS = load_cards()  # Carica tutte le carte
 
-# Comando per aprire una figurina
+# Funzione per gestire l'apertura delle figurine
 async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /apri per aprire una figurina."""
     user = update.effective_user
@@ -57,8 +58,23 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "comune": [],
             "rara": [],
             "epica": [],
-            "leggendaria": []
+            "leggendaria": [],
+            "last_opened": None  # Aggiungi un campo per l'ultimo tentativo di apertura
         }
+
+    # Verifica se sono passate 12 ore dall'ultima apertura
+    last_opened = user_collections[user_id].get("last_opened", None)
+
+    if last_opened:
+        # Calcola la differenza di tempo
+        time_diff = datetime.now() - datetime.fromisoformat(last_opened)
+        if time_diff < timedelta(hours=12):
+            remaining_time = timedelta(hours=12) - time_diff
+            await update.message.reply_text(
+                f"Devi aspettare ancora {remaining_time} prima di aprire una nuova figurina.",
+                parse_mode="Markdown"
+            )
+            return
 
     # Determina la rarità
     roll = random.randint(1, 100)
@@ -79,11 +95,15 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     # Verifica se l'utente ha già questa carta
     if card in user_collections[user_id][rarity]:
-        await update.message.reply_text(f"🎉 {user.first_name}, hai già questa carta!\n✨ **{card}** ✨", parse_mode="Markdown")
+        await update.message.reply_text(f"🎉 Hai ottenuto una carta che hai già!\n✨ **{card}** ✨", parse_mode="Markdown")
         return
 
     # Aggiungi la carta alla collezione dell'utente
     user_collections[user_id][rarity].append(card)
+
+    # Aggiorna il timestamp dell'ultima apertura
+    user_collections[user_id]["last_opened"] = datetime.now().isoformat()
+
     save_collections()  # Salva la collezione aggiornata
 
     # Path per l'immagine della carta
@@ -108,7 +128,7 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     else:
         # Invia solo il messaggio testuale con formattazione Markdown
         await update.message.reply_text(
-            f"🎉 {user.first_name}, hai ottenuto una carta {rarity.upper()}:\n✨ **{card}** ✨!",
+            f"🎉 Hai ottenuto una carta {rarity.upper()}:\n✨ **{card}** ✨!",
             parse_mode="Markdown"
         )
 
