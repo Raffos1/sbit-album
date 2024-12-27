@@ -225,6 +225,32 @@ async def bash(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "👉 [Clicca qui per registrarti!](https://start.gg/raffos)",
         parse_mode="Markdown"
     )
+    
+# Funzione per visualizzare i pacchetti rimanenti
+async def pacchetti(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /pacchetti per visualizzare i pacchetti rimanenti dell'utente."""
+    user = update.effective_user
+    user_id = str(user.id)
+
+    # Verifica se l'utente ha una collezione
+    if user_id not in user_collections:
+        user_collections[user_id] = {
+            "comune": [],
+            "rara": [],
+            "epica": [],
+            "leggendaria": [],
+            "last_opened": None,
+            "pack_reserve": 10   # Inizia con 10 pacchetti
+        }
+
+    # Recupera il numero di pacchetti rimanenti
+    user_data = user_collections[user_id]
+    pack_reserve = user_data["pack_reserve"]
+
+    await update.message.reply_text(
+        f"🃏 **Aperture rimanenti:** {pack_reserve}",
+        parse_mode="Markdown"
+    )
 
 async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /about per informazioni sul bot."""
@@ -322,6 +348,7 @@ def main():
     application.add_handler(CommandHandler("collezione", collezione))
     application.add_handler(CommandHandler("help", help))
     application.add_handler(CommandHandler("bash", bash))
+    application.add_handler(CommandHandler("pacchetti", pacchetti))
     application.add_handler(CommandHandler("about", about))
     application.add_handler(CommandHandler("reset", reset))
     application.add_handler(CallbackQueryHandler(button))
