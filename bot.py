@@ -298,22 +298,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             f"Operazione di reset annullata.",
             parse_mode="Markdown"
         )
-        
-# Funzione per impostare i comandi del bot
-async def set_commands(application: Application):
-    """Imposta i comandi del bot nel menu principale."""
-    commands = [
-        ("start", "Inizia il bot e ricevi informazioni"),
-        ("apri", "Apre un pacchetto di figurine"),
-        ("collezione", "Visualizza la tua collezione"),
-        ("reset", "Resetta la tua collezione"),
-        ("help", "Mostra i comandi disponibili"),
-        ("bash", "Informazioni sul Raffo's Birthday Bash"),
-        ("about", "Informazioni sul bot")
-    ]
-    
-    # Imposta i comandi nel menu del bot
-    await application.bot.set_my_commands(commands)
 
 def main():
     """Avvia il bot."""
