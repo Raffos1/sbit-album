@@ -48,7 +48,7 @@ CARDS = load_cards()  # Carica tutte le carte
 
 # Funzione per gestire l'apertura delle figurine
 async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /apri per aprire una figurina."""
+    """Comando /apri per aprire figurine con una riserva di aperture."""
     user = update.effective_user
     user_id = str(user.id)  # Usa l'ID dell'utente per identificare la collezione
 
@@ -59,22 +59,36 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "rara": [],
             "epica": [],
             "leggendaria": [],
-            "last_opened": None  # Aggiungi un campo per l'ultimo tentativo di apertura
+            "last_opened": None,  # Ultima apertura
+            "aperture_rimanenti": 10  # Contatore aperture rimanenti
         }
 
     # Verifica se sono passate 12 ore dall'ultima apertura
     last_opened = user_collections[user_id].get("last_opened", None)
-
     if last_opened:
-        # Calcola la differenza di tempo
         time_diff = datetime.now() - datetime.fromisoformat(last_opened)
         if time_diff < timedelta(hours=12):
             remaining_time = timedelta(hours=12) - time_diff
             await update.message.reply_text(
-                f"Devi aspettare ancora {remaining_time} prima di aprire una nuova figurina.",
+                f"Devi aspettare ancora {remaining_time} prima di poter aprire figurine.",
                 parse_mode="Markdown"
             )
             return
+
+    # Riprova se sono stati fatti meno di 10 tentativi
+    if user_collections[user_id]["aperture_rimanenti"] >= 10:
+        await update.message.reply_text(
+            "Hai raggiunto il massimo di aperture accumulate (10). Devi aspettare il prossimo periodo di 12 ore.",
+            parse_mode="Markdown"
+        )
+        return
+
+    # Verifica quante aperture rimanenti per l'utente
+    if user_collections[user_id]["aperture_rimanenti"] < 5:
+        user_collections[user_id]["aperture_rimanenti"] = 5  # Consenti un massimo di 5 aperture in un periodo
+
+    # Se ci sono aperture rimanenti, permetti l'apertura
+    user_collections[user_id]["aperture_rimanenti"] -= 1
 
     # Determina la rarità
     roll = random.randint(1, 100)
@@ -104,7 +118,8 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Aggiorna il timestamp dell'ultima apertura
     user_collections[user_id]["last_opened"] = datetime.now().isoformat()
 
-    save_collections()  # Salva la collezione aggiornata
+    # Salva la collezione aggiornata
+    save_collections()
 
     # Path per l'immagine della carta
     image_path = os.path.join("immagini", f"{card}.png")
