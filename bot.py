@@ -12,6 +12,14 @@ CARD_FILES = {
     "leggendaria": "leggendarie.txt"
 }
 
+# Probabilità per le rarità (in percentuale)
+RARITY_PROBABILITIES = {
+    "comune": 2,
+    "rara": 15,
+    "epica": 5,
+    "leggendaria": 78
+}
+
 # Collezione utenti
 user_collections = {}
 
@@ -127,49 +135,11 @@ async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
 
     await update.message.reply_text(collection_message, parse_mode="Markdown")
 
-# Funzione per la cancellazione della collezione con conferma
-async def reset_collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /reset_collezione per chiedere conferma per cancellare la collezione."""
-    keyboard = [
-        [InlineKeyboardButton("Sì, cancella la mia collezione", callback_data="reset_yes")],
-        [InlineKeyboardButton("No, annulla", callback_data="reset_no")]
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.message.reply_text(
-        "🚨 Sei sicuro di voler cancellare la tua collezione? Questa azione non può essere annullata.",
-        reply_markup=reply_markup
-    )
-
-# Funzione per gestire la risposta ai bottoni di conferma
-async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Gestisce il callback dei bottoni di conferma cancellazione."""
-    query = update.callback_query
-    user_id = str(query.from_user.id)
-    
-    if query.data == "reset_yes":
-        if user_id in user_collections:
-            # Cancella la collezione dell'utente
-            user_collections[user_id] = {
-                "comune": [],
-                "rara": [],
-                "epica": [],
-                "leggendaria": []
-            }
-            save_collections()
-            await query.edit_message_text("✅ La tua collezione è stata cancellata con successo. Ora puoi ricominciare da zero!")
-        else:
-            await query.edit_message_text("❌ Non hai ancora una collezione da cancellare.")
-    
-    elif query.data == "reset_no":
-        await query.edit_message_text("🚫 La cancellazione della collezione è stata annullata.")
-
-# Aggiungi il nuovo comando per resettare la collezione
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Usa il comando /start per iniziare!"""
     await update.message.reply_text(
         "🎴 Benvenuto nel Bot Raccolta Figurine di SBIT!\n"
-        "Usa /apri per scoprire quale carta ottieni, oppure /help per scoprire tutti i comandi!\n"
-        "Usa /reset_collezione per cancellare la tua collezione e ricominciare da zero.",
+        "Usa /apri per scoprire quale carta ottieni, oppure /help per scoprire tutti i comandi!",
         parse_mode="Markdown"
     )
 
@@ -179,13 +149,96 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "🎴 **Comandi disponibili:**\n"
         "- /apri: Scopri quale carta ottieni!\n"
         "- /collezione: Visualizza la tua collezione!\n"
-        "- /reset_collezione: Cancella la tua collezione!\n"
         "- /bash: Iscriviti al Raffo's Birthday Bash!\n"
         "- /about: Informazioni sul bot.\n"
         "- /help: Mostra questo messaggio di aiuto.\n\n"
         "Buona fortuna con la tua collezione! 🌟",
         parse_mode="Markdown"
     )
+
+async def bash(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /bash per linkare l'evento."""
+    await update.message.reply_text(
+        "🎂 **Iscriviti al Raffo's Birthday Bash!** 🎉\n"
+        "📅 *700 Euro di Prizepool, Cena gratis e tanto altro!*\n"
+        "🤯 *Confermati all'evento: M4E, Meercko, y0lT, GANDIX, Paky e molti altri!*\n"
+        "Non perdere questo evento unico nel suo genere!\n\n"
+        "👉 [Clicca qui per registrarti!](https://start.gg/raffos)",
+        parse_mode="Markdown"
+    )
+
+async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /about per informazioni sul bot."""
+    await update.message.reply_text(
+        "Questo bot è stato creato da [@Raffosbaffos](https://t.me/Raffosbaffos)!\n"
+        "Per qualsiasi problema, contattatemi direttamente! :D",
+        parse_mode="Markdown"
+    )
+    
+# Comando per resettare la collezione
+async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /reset per resettare la collezione dell'utente con conferma tramite pulsanti inline."""
+    user = update.effective_user
+    user_id = str(user.id)
+
+    # Assicurati che l'utente abbia una collezione, anche vuota
+    if user_id not in user_collections:
+        user_collections[user_id] = {
+            "comune": [],
+            "rara": [],
+            "epica": [],
+            "leggendaria": []
+        }
+
+    # Verifica se l'utente ha carte
+    if not any(user_collections[user_id].values()):
+        await update.message.reply_text("Non hai ancora ottenuto nessuna carta!", parse_mode="Markdown")
+        return
+
+    # Crea i pulsanti inline per confermare il reset
+    keyboard = [
+        [
+            InlineKeyboardButton("Sì", callback_data="reset_yes"),
+            InlineKeyboardButton("No", callback_data="reset_no")
+        ]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+
+    # Chiedi conferma
+    await update.message.reply_text(
+        "Sei sicuro di voler resettare la tua collezione? Questa azione non può essere annullata.",
+        reply_markup=reply_markup,
+        parse_mode="Markdown"
+    )
+
+# Funzione per gestire i callback dei pulsanti inline
+async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Gestisce i callback dei pulsanti inline."""
+    query = update.callback_query
+    await query.answer()  # Risponde al clic del pulsante
+
+    user_id = str(query.from_user.id)
+
+    if query.data == "reset_yes":
+        # Resetta la collezione dell'utente
+        user_collections[user_id] = {
+            "comune": [],
+            "rara": [],
+            "epica": [],
+            "leggendaria": []
+        }
+        save_collections()  # Salva la collezione aggiornata
+
+        await query.edit_message_text(
+            f"🎉 La tua collezione è stata resettata, {query.from_user.first_name}!",
+            parse_mode="Markdown"
+        )
+    elif query.data == "reset_no":
+        # Annulla il reset
+        await query.edit_message_text(
+            f"Operazione di reset annullata, {query.from_user.first_name}.",
+            parse_mode="Markdown"
+        )
 
 def main():
     """Avvia il bot."""
@@ -208,9 +261,11 @@ def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("apri", apri))
     application.add_handler(CommandHandler("collezione", collezione))
-    application.add_handler(CommandHandler("reset_collezione", reset_collezione))
     application.add_handler(CommandHandler("help", help))
-    application.add_handler(CallbackQueryHandler(button))  # Gestione dei bottoni inline
+    application.add_handler(CommandHandler("bash", bash))
+    application.add_handler(CommandHandler("about", about))
+    application.add_handler(CommandHandler("reset", reset))
+    application.add_handler(CallbackQueryHandler(button))
 
     # Configura il webhook (modifica l'URL del webhook)
     application.run_webhook(
