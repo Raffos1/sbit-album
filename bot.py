@@ -52,24 +52,15 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user = update.effective_user
     user_id = str(user.id)  # Usa l'ID dell'utente per identificare la collezione
 
-    # Verifica se l'utente ha già una collezione e pacchetti disponibili
+    # Verifica se l'utente ha già una collezione
     if user_id not in user_collections:
         user_collections[user_id] = {
             "comune": [],
             "rara": [],
             "epica": [],
             "leggendaria": [],
-            "packages": 10,  # L'utente inizia con 10 pacchetti
             "last_opened": None  # Aggiungi un campo per l'ultimo tentativo di apertura
         }
-
-    # Verifica se ci sono pacchetti disponibili
-    if user_collections[user_id]["packages"] <= 0:
-        await update.message.reply_text(
-            "Hai esaurito i pacchetti disponibili! Torna tra 12 ore per ottenerne altri.",
-            parse_mode="Markdown"
-        )
-        return
 
     # Verifica se sono passate 12 ore dall'ultima apertura
     last_opened = user_collections[user_id].get("last_opened", None)
@@ -84,9 +75,6 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 parse_mode="Markdown"
             )
             return
-
-    # Deduce un pacchetto per l'apertura
-    user_collections[user_id]["packages"] -= 1
 
     # Determina la rarità
     roll = random.randint(1, 100)
@@ -177,9 +165,6 @@ async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
             ordered_cards = [card for card in CARDS[rarity] if card in owned_cards]
             collection_message += "\n".join(ordered_cards) + "\n\n"
 
-    # Aggiungi i pacchetti disponibili
-    collection_message += f"📦 **Pacchetti disponibili**: {user_collections[user_id]['packages']}"
-
     await update.message.reply_text(collection_message, parse_mode="Markdown")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -235,8 +220,7 @@ async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "comune": [],
             "rara": [],
             "epica": [],
-            "leggendaria": [],
-            "packages": 10  # Reset pacchetti a 10
+            "leggendaria": []
         }
 
     # Verifica se l'utente ha carte
@@ -274,8 +258,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "comune": [],
             "rara": [],
             "epica": [],
-            "leggendaria": [],
-            "packages": 10  # Resetta pacchetti a 10
+            "leggendaria": []
         }
         save_collections()  # Salva la collezione aggiornata
 
@@ -284,27 +267,45 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             parse_mode="Markdown"
         )
     elif query.data == "reset_no":
-        # Se l'utente annulla il reset
+        # Annulla il reset
         await query.edit_message_text(
-            "Operazione annullata. La tua collezione non è stata modificata.",
+            f"Operazione di reset annullata.",
             parse_mode="Markdown"
         )
 
-# Funzione principale per l'avvio dell'app
 def main():
+    """Avvia il bot."""
+    # Carica le collezioni esistenti
     load_collections()
-    application = Application.builder().token("YOUR-BOT-TOKEN").build()
 
-    # Aggiungi handler
+    # Token e URL del webhook
+    TOKEN = os.environ.get("TELEGRAM_TOKEN")
+    if not TOKEN:
+        raise RuntimeError("TELEGRAM_TOKEN non configurato!")
+
+    APP_URL = os.environ.get("APP_URL")
+    if not APP_URL:
+        raise RuntimeError("APP_URL non configurato!")
+
+    # Crea l'applicazione
+    application = Application.builder().token(TOKEN).build()
+
+    # Aggiungi i comandi
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("help", help))
     application.add_handler(CommandHandler("apri", apri))
     application.add_handler(CommandHandler("collezione", collezione))
+    application.add_handler(CommandHandler("help", help))
+    application.add_handler(CommandHandler("bash", bash))
+    application.add_handler(CommandHandler("about", about))
     application.add_handler(CommandHandler("reset", reset))
     application.add_handler(CallbackQueryHandler(button))
 
-    # Avvio del bot
-    application.run_polling()
+    # Configura il webhook (modifica l'URL del webhook)
+    application.run_webhook(
+        listen="0.0.0.0",
+        port=int(os.environ.get("PORT", 8443)),
+        webhook_url=f"{APP_URL}/"
+    )
 
 if __name__ == "__main__":
     main()
