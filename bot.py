@@ -126,7 +126,7 @@ async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     # Crea un messaggio con la collezione dell'utente, suddivisa per rarità
     collection_message = f"🎴 **Collezione di {user.first_name}:**\n\n"
     
-    for rarity in ["comuni", "rare", "epiche", "leggendarie"]:
+    for rarity in ["comune", "rara", "epica", "leggendaria"]:
         # Carte possedute per questa rarità
         owned_cards = user_collections[user_id][rarity]
         if owned_cards:
