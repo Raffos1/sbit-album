@@ -59,22 +59,24 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "rara": [],
             "epica": [],
             "leggendaria": [],
-            "last_opened": None  # Aggiungi un campo per l'ultimo tentativo di apertura
+            "last_opened": None,
+            "pacchetti_rimanenti": 10,  # Aggiungi pacchetti iniziali
+            "last_refill": datetime.now().isoformat()  # Data dell'ultimo ricarico
         }
 
-    # Verifica se sono passate 12 ore dall'ultima apertura
-    last_opened = user_collections[user_id].get("last_opened", None)
+    # Verifica se l'utente ha pacchetti disponibili
+    if user_collections[user_id]["pacchetti_rimanenti"] <= 0:
+        await update.message.reply_text("Non hai pacchetti disponibili! Riprova tra poco.", parse_mode="Markdown")
+        return
 
-    if last_opened:
-        # Calcola la differenza di tempo
-        time_diff = datetime.now() - datetime.fromisoformat(last_opened)
-        if time_diff < timedelta(hours=12):
-            remaining_time = timedelta(hours=12) - time_diff
-            await update.message.reply_text(
-                f"Devi aspettare ancora {remaining_time} prima di aprire una nuova figurina.",
-                parse_mode="Markdown"
-            )
-            return
+    # Verifica se sono passate 12 ore dall'ultimo ricarico
+    last_refill = datetime.fromisoformat(user_collections[user_id]["last_refill"])
+    time_diff = datetime.now() - last_refill
+    if time_diff >= timedelta(hours=12):
+        # Ricarica i pacchetti
+        new_packs = min(10, user_collections[user_id]["pacchetti_rimanenti"] + 5)
+        user_collections[user_id]["pacchetti_rimanenti"] = new_packs
+        user_collections[user_id]["last_refill"] = datetime.now().isoformat()
 
     # Determina la rarità
     roll = random.randint(1, 100)
@@ -101,8 +103,8 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     # Aggiungi la carta alla collezione dell'utente
     user_collections[user_id][rarity].append(card)
 
-    # Aggiorna il timestamp dell'ultima apertura
-    user_collections[user_id]["last_opened"] = datetime.now().isoformat()
+    # Aggiorna il numero di pacchetti rimanenti
+    user_collections[user_id]["pacchetti_rimanenti"] -= 1
 
     save_collections()  # Salva la collezione aggiornata
 
@@ -132,9 +134,24 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             parse_mode="Markdown"
         )
 
+# Funzione per visualizzare i pacchetti rimanenti
+async def pacchetti(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /pacchetti per visualizzare i pacchetti rimanenti dell'utente."""
+    user = update.effective_user
+    user_id = str(user.id)
+
+    # Verifica se l'utente ha una collezione
+    if user_id not in user_collections:
+        await update.message.reply_text("Non hai ancora ottenuto nessuna carta!", parse_mode="Markdown")
+        return
+
+    # Mostra il numero di pacchetti rimanenti
+    remaining_packs = user_collections[user_id]["pacchetti_rimanenti"]
+    await update.message.reply_text(f"🎴 **Pacchetti rimanenti:** {remaining_packs}", parse_mode="Markdown")
+
 # Comando per visualizzare la collezione dell'utente
 async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /collezione per visualizzare le carte possedute dall'utente nell'ordine dei file e con le rarità al plurale."""
+    """Comando /collezione per visualizzare le carte possedute dall'utente."""
     user = update.effective_user
     user_id = str(user.id)
 
@@ -175,72 +192,26 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         parse_mode="Markdown"
     )
 
-async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Usa il comando /help per sapere tutto quello che c'è da sapere!"""
-    await update.message.reply_text(
-        "🎴 **Comandi disponibili:**\n"
-        "- /apri: Scopri quale carta ottieni!\n"
-        "- /collezione: Visualizza la tua collezione!\n"
-        "- /reset: Cancella la tua collezione.\n"
-        "- /bash: Iscriviti al Raffo's Birthday Bash!\n"
-        "- /about: Informazioni sul bot.\n"
-        "- /help: Mostra questo messaggio di aiuto.\n\n"
-        "Buona fortuna con la tua collezione! 🌟",
-        parse_mode="Markdown"
-    )
-
-async def bash(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /bash per linkare l'evento."""
-    await update.message.reply_text(
-        "🎂 **Iscriviti al Raffo's Birthday Bash!** 🎉\n"
-        "📅 *700 Euro di Prizepool, Cena gratis e tanto altro!*\n"
-        "🤯 *Confermati all'evento: M4E, Meercko, y0lT, GANDIX, Paky e molti altri!*\n"
-        "Non perdere questo evento unico nel suo genere!\n\n"
-        "👉 [Clicca qui per registrarti!](https://start.gg/raffos)",
-        parse_mode="Markdown"
-    )
-
-async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /about per informazioni sul bot."""
-    await update.message.reply_text(
-        "Questo bot è stato creato da [@Raffosbaffos](https://t.me/Raffosbaffos)!\n"
-        "Per qualsiasi problema, contattatemi direttamente! :D",
-        parse_mode="Markdown"
-    )
-    
-# Comando per resettare la collezione
+# Funzione per resettare la collezione
 async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /reset per resettare la collezione dell'utente con conferma tramite pulsanti inline."""
+    """Comando /reset per resettare la collezione dell'utente con conferma tramite pulsanti inline.""" 
     user = update.effective_user
     user_id = str(user.id)
 
-    # Assicurati che l'utente abbia una collezione, anche vuota
-    if user_id not in user_collections:
-        user_collections[user_id] = {
-            "comune": [],
-            "rara": [],
-            "epica": [],
-            "leggendaria": []
-        }
+    # Resetta la collezione
+    user_collections[user_id] = {
+        "comune": [],
+        "rara": [],
+        "epica": [],
+        "leggendaria": [],
+        "pacchetti_rimanenti": 10,  # Resetta i pacchetti disponibili
+        "last_refill": datetime.now().isoformat()  # Resetta la data dell'ultimo ricarico
+    }
 
-    # Verifica se l'utente ha carte
-    if not any(user_collections[user_id].values()):
-        await update.message.reply_text("Non hai ancora ottenuto nessuna carta!", parse_mode="Markdown")
-        return
+    save_collections()  # Salva la collezione aggiornata
 
-    # Crea i pulsanti inline per confermare il reset
-    keyboard = [
-        [
-            InlineKeyboardButton("Sì", callback_data="reset_yes"),
-            InlineKeyboardButton("No", callback_data="reset_no")
-        ]
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-
-    # Chiedi conferma
     await update.message.reply_text(
-        "Sei sicuro di voler resettare la tua collezione? Questa azione non può essere annullata.",
-        reply_markup=reply_markup,
+        "🎉 La tua collezione è stata resettata!",
         parse_mode="Markdown"
     )
 
@@ -258,7 +229,9 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "comune": [],
             "rara": [],
             "epica": [],
-            "leggendaria": []
+            "leggendaria": [],
+            "pacchetti_rimanenti": 10,  # Resetta i pacchetti disponibili
+            "last_refill": datetime.now().isoformat()  # Resetta la data dell'ultimo ricarico
         }
         save_collections()  # Salva la collezione aggiornata
 
@@ -294,6 +267,7 @@ def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("apri", apri))
     application.add_handler(CommandHandler("collezione", collezione))
+    application.add_handler(CommandHandler("pacchetti", pacchetti))  # Aggiungi il comando /pacchetti
     application.add_handler(CommandHandler("help", help))
     application.add_handler(CommandHandler("bash", bash))
     application.add_handler(CommandHandler("about", about))
