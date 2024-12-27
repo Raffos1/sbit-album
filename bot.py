@@ -86,8 +86,19 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     # Verifica se ci sono pacchetti disponibili
     if user_data["pack_reserve"] <= 0:
+        # Calcola il tempo mancante alla prossima ricarica
+        last_opened_time = datetime.fromisoformat(user_data["last_opened"])
+        next_refill_time = last_opened_time + timedelta(hours=12)
+        time_remaining = next_refill_time - datetime.now()
+
+        # Converti in ore, minuti e secondi
+        hours, remainder = divmod(time_remaining.seconds, 3600)
+        minutes, seconds = divmod(remainder, 60)
+
+        # Messaggio personalizzato
         await update.message.reply_text(
-            "Non hai pacchetti disponibili al momento. Aspetta fino a quando la riserva non si ricarica.",
+            f"Non hai pacchetti disponibili al momento.\n"
+            f"Tempo rimanente per la prossima ricarica: **{hours} ore, {minutes} minuti e {seconds} secondi**.",
             parse_mode="Markdown"
         )
         return
