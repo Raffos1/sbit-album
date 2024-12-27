@@ -63,8 +63,14 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "pack_reserve": 10   # Inizia con 10 pacchetti
         }
 
-    # Gestisci la riserva di pacchetti
+    # Recupera i dati dell'utente
     user_data = user_collections[user_id]
+
+    # Inizializza eventuali chiavi mancanti
+    user_data.setdefault("pack_reserve", 10)
+    user_data.setdefault("last_opened", None)
+
+    # Gestisci la riserva di pacchetti
     last_opened = user_data.get("last_opened")
     if last_opened:
         last_opened_time = datetime.fromisoformat(last_opened)
