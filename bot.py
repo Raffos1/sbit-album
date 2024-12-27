@@ -48,7 +48,7 @@ CARDS = load_cards()  # Carica tutte le carte
 
 # Funzione per gestire l'apertura delle figurine
 async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /apri per aprire figurine."""
+    """Comando /apri per aprire una figurina."""
     user = update.effective_user
     user_id = str(user.id)  # Usa l'ID dell'utente per identificare la collezione
 
@@ -59,8 +59,7 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "rara": [],
             "epica": [],
             "leggendaria": [],
-            "figurine_riserva": 10,  # Inizialmente 10 figurine in riserva
-            "last_opened": None
+            "last_opened": None  # Aggiungi un campo per l'ultimo tentativo di apertura
         }
 
     # Verifica se sono passate 12 ore dall'ultima apertura
@@ -77,52 +76,61 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             )
             return
 
-    # Verifica se l'utente ha abbastanza figurine in riserva per aprirne 5
-    figurine_riserva = user_collections[user_id]["figurine_riserva"]
-    if figurine_riserva < 5:
-        await update.message.reply_text(
-            f"Non hai abbastanza figurine in riserva! Hai solo {figurine_riserva} figurine disponibili.",
-            parse_mode="Markdown"
-        )
+    # Determina la rarità
+    roll = random.randint(1, 100)
+    cumulative = 0
+    rarity = None
+    for r, probability in RARITY_PROBABILITIES.items():
+        cumulative += probability
+        if roll <= cumulative:
+            rarity = r
+            break
+
+    if rarity is None:
+        await update.message.reply_text("Errore nel calcolo della rarità.", parse_mode="Markdown")
         return
 
-    # Determina la rarità delle figurine da aprire
-    opened_cards = []  # Carte che l'utente ha aperto
-    for _ in range(5):
-        roll = random.randint(1, 100)
-        cumulative = 0
-        rarity = None
-        for r, probability in RARITY_PROBABILITIES.items():
-            cumulative += probability
-            if roll <= cumulative:
-                rarity = r
-                break
+    # Scegli una carta casuale
+    card = random.choice(CARDS[rarity])
 
-        if rarity is None:
-            await update.message.reply_text("Errore nel calcolo della rarità.", parse_mode="Markdown")
-            return
+    # Verifica se l'utente ha già questa carta
+    if card in user_collections[user_id][rarity]:
+        await update.message.reply_text(f"🎉 Hai ottenuto una carta che hai già!\n✨ **{card}** ✨", parse_mode="Markdown")
+        return
 
-        # Scegli una carta casuale
-        card = random.choice(CARDS[rarity])
-
-        # Verifica se l'utente ha già questa carta
-        if card in user_collections[user_id][rarity]:
-            opened_cards.append(f"🎉 Hai ottenuto una carta che hai già!\n✨ **{card}** ✨")
-        else:
-            # Aggiungi la carta alla collezione dell'utente
-            user_collections[user_id][rarity].append(card)
-            opened_cards.append(f"🎉 Hai ottenuto una nuova carta {rarity.upper()}:\n✨ **{card}** ✨")
-
-    # Riduci il numero di figurine in riserva
-    user_collections[user_id]["figurine_riserva"] -= 5
+    # Aggiungi la carta alla collezione dell'utente
+    user_collections[user_id][rarity].append(card)
 
     # Aggiorna il timestamp dell'ultima apertura
     user_collections[user_id]["last_opened"] = datetime.now().isoformat()
 
     save_collections()  # Salva la collezione aggiornata
 
-    # Invia il messaggio con tutte le carte aperte
-    await update.message.reply_text("\n\n".join(opened_cards), parse_mode="Markdown")
+    # Path per l'immagine della carta
+    image_path = os.path.join("immagini", f"{card}.png")
+
+    if os.path.isfile(image_path):
+        try:
+            # Invia il messaggio con immagine e testo formattato
+            await context.bot.send_photo(
+                chat_id=update.effective_chat.id,
+                photo=open(image_path, "rb"),
+                caption=f"🎉 {user.first_name}, hai ottenuto una nuova carta {rarity.upper()}:\n✨ **{card}** ✨!",
+                parse_mode="Markdown"
+            )
+        except Exception as e:
+            # Gestisci eventuali errori durante l'invio
+            await update.message.reply_text(
+                f"Errore durante l'invio dell'immagine: {str(e)}\n"
+                f"Hai ottenuto una carta {rarity.upper()}:\n✨**{card}**✨!",
+                parse_mode="Markdown"
+            )
+    else:
+        # Invia solo il messaggio testuale con formattazione Markdown
+        await update.message.reply_text(
+            f"🎉 Hai ottenuto una carta {rarity.upper()}:\n✨ **{card}** ✨!",
+            parse_mode="Markdown"
+        )
 
 # Comando per visualizzare la collezione dell'utente
 async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -171,7 +179,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Usa il comando /help per sapere tutto quello che c'è da sapere!"""
     await update.message.reply_text(
         "🎴 **Comandi disponibili:**\n"
-        "- /apri: Scopri quali carte ottieni!\n"
+        "- /apri: Scopri quale carta ottieni!\n"
         "- /collezione: Visualizza la tua collezione!\n"
         "- /reset: Cancella la tua collezione.\n"
         "- /bash: Iscriviti al Raffo's Birthday Bash!\n"
@@ -181,6 +189,26 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         parse_mode="Markdown"
     )
 
+async def bash(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /bash per linkare l'evento."""
+    await update.message.reply_text(
+        "🎂 **Iscriviti al Raffo's Birthday Bash!** 🎉\n"
+        "📅 *700 Euro di Prizepool, Cena gratis e tanto altro!*\n"
+        "🤯 *Confermati all'evento: M4E, Meercko, y0lT, GANDIX, Paky e molti altri!*\n"
+        "Non perdere questo evento unico nel suo genere!\n\n"
+        "👉 [Clicca qui per registrarti!](https://start.gg/raffos)",
+        parse_mode="Markdown"
+    )
+
+async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /about per informazioni sul bot."""
+    await update.message.reply_text(
+        "Questo bot è stato creato da [@Raffosbaffos](https://t.me/Raffosbaffos)!\n"
+        "Per qualsiasi problema, contattatemi direttamente! :D",
+        parse_mode="Markdown"
+    )
+    
+# Comando per resettare la collezione
 async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /reset per resettare la collezione dell'utente con conferma tramite pulsanti inline."""
     user = update.effective_user
@@ -192,8 +220,7 @@ async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "comune": [],
             "rara": [],
             "epica": [],
-            "leggendaria": [],
-            "figurine_riserva": 10
+            "leggendaria": []
         }
 
     # Verifica se l'utente ha carte
@@ -231,8 +258,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "comune": [],
             "rara": [],
             "epica": [],
-            "leggendaria": [],
-            "figurine_riserva": 10
+            "leggendaria": []
         }
         save_collections()  # Salva la collezione aggiornata
 
