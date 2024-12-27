@@ -59,22 +59,35 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "rara": [],
             "epica": [],
             "leggendaria": [],
-            "last_opened": None  # Aggiungi un campo per l'ultimo tentativo di apertura
+            "last_opened": None,  # Timestamp per l'ultima apertura
+            "pack_reserve": 10   # Inizia con 10 pacchetti
         }
 
-    # Verifica se sono passate 12 ore dall'ultima apertura
-    last_opened = user_collections[user_id].get("last_opened", None)
-
+    # Gestisci la riserva di pacchetti
+    user_data = user_collections[user_id]
+    last_opened = user_data.get("last_opened")
     if last_opened:
-        # Calcola la differenza di tempo
-        time_diff = datetime.now() - datetime.fromisoformat(last_opened)
-        if time_diff < timedelta(hours=12):
-            remaining_time = timedelta(hours=12) - time_diff
-            await update.message.reply_text(
-                f"Devi aspettare ancora {remaining_time} prima di aprire una nuova figurina.",
-                parse_mode="Markdown"
-            )
-            return
+        last_opened_time = datetime.fromisoformat(last_opened)
+        time_diff = datetime.now() - last_opened_time
+        if time_diff >= timedelta(hours=12):
+            # Aggiungi fino a 5 pacchetti ogni 12 ore, senza superare il massimo di 10
+            additional_packs = min(5, 10 - user_data["pack_reserve"])
+            user_data["pack_reserve"] += additional_packs
+            user_data["last_opened"] = datetime.now().isoformat()
+    else:
+        # Imposta il timestamp iniziale se manca
+        user_data["last_opened"] = datetime.now().isoformat()
+
+    # Verifica se ci sono pacchetti disponibili
+    if user_data["pack_reserve"] <= 0:
+        await update.message.reply_text(
+            "Non hai pacchetti disponibili al momento. Aspetta fino a quando la riserva non si ricarica.",
+            parse_mode="Markdown"
+        )
+        return
+
+    # Consuma un pacchetto
+    user_data["pack_reserve"] -= 1
 
     # Determina la rarità
     roll = random.randint(1, 100)
@@ -94,16 +107,12 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     card = random.choice(CARDS[rarity])
 
     # Verifica se l'utente ha già questa carta
-    if card in user_collections[user_id][rarity]:
+    if card in user_data[rarity]:
         await update.message.reply_text(f"🎉 Hai ottenuto una carta che hai già!\n✨ **{card}** ✨", parse_mode="Markdown")
         return
 
     # Aggiungi la carta alla collezione dell'utente
-    user_collections[user_id][rarity].append(card)
-
-    # Aggiorna il timestamp dell'ultima apertura
-    user_collections[user_id]["last_opened"] = datetime.now().isoformat()
-
+    user_data[rarity].append(card)
     save_collections()  # Salva la collezione aggiornata
 
     # Path per l'immagine della carta
