@@ -236,7 +236,8 @@ async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /about per informazioni sul bot."""
     await update.message.reply_text(
         "Questo bot è stato creato da [@Raffosbaffos](https://t.me/Raffosbaffos)!\n"
-        "Per qualsiasi problema, contattatemi direttamente! :D",
+        "Per qualsiasi problema, contattatemi direttamente! :D\n\n"
+        "Inoltre, puoi usare il comando /cancellacollezione per eliminare l'intera tua collezione di carte!",
         parse_mode="Markdown"
     )
 
