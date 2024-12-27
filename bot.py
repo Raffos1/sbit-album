@@ -241,11 +241,17 @@ async def pacchetti(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
             "epica": [],
             "leggendaria": [],
             "last_opened": None,
-            "pack_reserve": 10   # Inizia con 10 pacchetti
+            "pack_reserve": 10  # Inizia con 10 pacchetti se non esistono dati
         }
 
-    # Recupera il numero di pacchetti rimanenti
+    # Recupera i dati dell'utente, assicurandosi che la chiave "pack_reserve" sia presente
     user_data = user_collections[user_id]
+
+    # Imposta "pack_reserve" se manca
+    if "pack_reserve" not in user_data:
+        user_data["pack_reserve"] = 10  # Imposta un valore di default
+
+    # Recupera il numero di pacchetti rimanenti
     pack_reserve = user_data["pack_reserve"]
 
     await update.message.reply_text(
