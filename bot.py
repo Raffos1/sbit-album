@@ -130,8 +130,16 @@ async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
         # Carte possedute per questa rarità
         owned_cards = user_collections[user_id][rarity]
         if owned_cards:
-            # Modifica il nome della rarità per renderlo plurale
-            rarity_plural = rarity.capitalize() + ("e" if rarity == "leggendaria" else "s")
+            # Modifica il nome della rarità per renderlo plurale correttamente
+            if rarity == "comune":
+                rarity_plural = "Comuni"
+            elif rarity == "rara":
+                rarity_plural = "Rare"
+            elif rarity == "epica":
+                rarity_plural = "Epiche"
+            elif rarity == "leggendaria":
+                rarity_plural = "Leggendarie"
+                
             collection_message += f"**{rarity_plural}:**\n"
             # Ordina le carte in base all'ordine nei file
             ordered_cards = [card for card in CARDS[rarity] if card in owned_cards]
