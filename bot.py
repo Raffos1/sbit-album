@@ -15,10 +15,10 @@ CARD_FILES = {
 
 # Probabilità per le rarità (in percentuale)
 RARITY_PROBABILITIES = {
-    "comune": 2,
+    "comune": 78,
     "rara": 15,
     "epica": 5,
-    "leggendaria": 78
+    "leggendaria": 2
 }
 
 # Collezione utenti
@@ -206,6 +206,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
         "🎴 **Comandi disponibili:**\n"
         "- /apri: Scopri quale carta ottieni!\n"
+        "- /pacchetti: Controlla il numero di pacchetti disponibili.\n"
         "- /collezione: Visualizza la tua collezione!\n"
         "- /reset: Cancella la tua collezione.\n"
         "- /bash: Iscriviti al Raffo's Birthday Bash!\n"
