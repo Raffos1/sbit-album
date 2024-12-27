@@ -114,7 +114,7 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 # Comando per visualizzare la collezione dell'utente
 async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /collezione per visualizzare le carte possedute dall'utente."""
+    """Comando /collezione per visualizzare le carte possedute dall'utente nell'ordine dei file e con le rarità al plurale."""
     user = update.effective_user
     user_id = str(user.id)
 
@@ -130,8 +130,12 @@ async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
         # Carte possedute per questa rarità
         owned_cards = user_collections[user_id][rarity]
         if owned_cards:
-            collection_message += f"**{rarity.capitalize()}:**\n"
-            collection_message += "\n".join(owned_cards) + "\n\n"
+            # Modifica il nome della rarità per renderlo plurale
+            rarity_plural = rarity.capitalize() + ("e" if rarity == "leggendaria" else "s")
+            collection_message += f"**{rarity_plural}:**\n"
+            # Ordina le carte in base all'ordine nei file
+            ordered_cards = [card for card in CARDS[rarity] if card in owned_cards]
+            collection_message += "\n".join(ordered_cards) + "\n\n"
 
     await update.message.reply_text(collection_message, parse_mode="Markdown")
 
@@ -149,6 +153,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "🎴 **Comandi disponibili:**\n"
         "- /apri: Scopri quale carta ottieni!\n"
         "- /collezione: Visualizza la tua collezione!\n"
+        "- /reset: Cancella la tua collezione.\n"
         "- /bash: Iscriviti al Raffo's Birthday Bash!\n"
         "- /about: Informazioni sul bot.\n"
         "- /help: Mostra questo messaggio di aiuto.\n\n"
@@ -230,13 +235,13 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         save_collections()  # Salva la collezione aggiornata
 
         await query.edit_message_text(
-            f"🎉 La tua collezione è stata resettata, {query.from_user.first_name}!",
+            f"🎉 La tua collezione è stata resettata!",
             parse_mode="Markdown"
         )
     elif query.data == "reset_no":
         # Annulla il reset
         await query.edit_message_text(
-            f"Operazione di reset annullata, {query.from_user.first_name}.",
+            f"Operazione di reset annullata.",
             parse_mode="Markdown"
         )
 
