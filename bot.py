@@ -1,5 +1,5 @@
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
+from telegram import Update
+from telegram.ext import Application, CommandHandler, ContextTypes
 import os
 import random
 import json
@@ -79,21 +79,7 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     # Verifica se l'utente ha già questa carta
     if card in user_collections[user_id][rarity]:
-        # Se l'utente ha già la carta, mostra comunque l'immagine se presente
-        image_path = os.path.join("immagini", f"{card}.png")
-        if os.path.isfile(image_path):
-            try:
-                # Invia l'immagine della carta
-                await context.bot.send_photo(
-                    chat_id=update.effective_chat.id,
-                    photo=open(image_path, "rb"),
-                    caption=f"🎉 {user.first_name}, hai già questa carta!\n✨ **{card}** ✨",
-                    parse_mode="Markdown"
-                )
-            except Exception as e:
-                await update.message.reply_text(f"Errore durante l'invio dell'immagine: {str(e)}\nHai già questa carta: {card}", parse_mode="Markdown")
-        else:
-            await update.message.reply_text(f"🎉 {user.first_name}, hai già questa carta!\n✨ **{card}** ✨", parse_mode="Markdown")
+        await update.message.reply_text(f"🎉 {user.first_name}, hai già questa carta!\n✨ **{card}** ✨", parse_mode="Markdown")
         return
 
     # Aggiungi la carta alla collezione dell'utente
@@ -140,7 +126,7 @@ async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     # Crea un messaggio con la collezione dell'utente, suddivisa per rarità
     collection_message = f"🎴 **Collezione di {user.first_name}:**\n\n"
     
-    for rarity in ["comune", "rara", "epica", "leggendarie"]:
+    for rarity in ["comuni", "rare", "epiche", "leggendarie"]:
         # Carte possedute per questa rarità
         owned_cards = user_collections[user_id][rarity]
         if owned_cards:
@@ -149,54 +135,6 @@ async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
 
     await update.message.reply_text(collection_message, parse_mode="Markdown")
 
-# Comando per cancellare la collezione dell'utente
-async def cancellacollezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Comando /cancellacollezione per chiedere conferma prima di cancellare la collezione."""
-    user = update.effective_user
-    user_id = str(user.id)  # Usa l'ID dell'utente per identificare la collezione
-
-    # Crea i pulsanti inline per confermare o annullare
-    keyboard = [
-        [
-            InlineKeyboardButton("Sono sicuro", callback_data=f"cancella_{user_id}"),
-            InlineKeyboardButton("No", callback_data=f"annulla_{user_id}")
-        ]
-    ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-
-    # Invia il messaggio con la richiesta di conferma
-    await update.message.reply_text(
-        "Sei sicuro di voler cancellare l'intera tua collezione? Questa azione è irreversibile.",
-        reply_markup=reply_markup
-    )
-
-# Funzione per gestire la risposta dell'utente (conferma o annullamento)
-async def gestione_cancellazione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    """Gestisce la risposta alla cancellazione della collezione."""
-    query = update.callback_query
-    user_id = query.data.split("_")[1]  # Estrai l'ID dell'utente dal callback data
-
-    # Verifica che l'utente sia lo stesso che ha invocato il comando
-    if str(query.from_user.id) == user_id:
-        if query.data.startswith("cancella"):
-            # Cancella la collezione dell'utente
-            if user_id in user_collections:
-                del user_collections[user_id]
-                save_collections()  # Salva la collezione aggiornata
-            await query.answer()
-            await query.edit_message_text(
-                "La tua collezione è stata cancellata con successo!",
-                parse_mode="Markdown"
-            )
-        elif query.data.startswith("annulla"):
-            # Annulla la cancellazione
-            await query.answer()
-            await query.edit_message_text(
-                "Cancellazione della collezione annullata.",
-                parse_mode="Markdown"
-            )
-
-# Comando /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Usa il comando /start per iniziare!"""
     await update.message.reply_text(
@@ -205,7 +143,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         parse_mode="Markdown"
     )
 
-# Comando /help
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Usa il comando /help per sapere tutto quello che c'è da sapere!"""
     await update.message.reply_text(
@@ -219,7 +156,6 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         parse_mode="Markdown"
     )
 
-# Comando /bash
 async def bash(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /bash per linkare l'evento."""
     await update.message.reply_text(
@@ -231,13 +167,11 @@ async def bash(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         parse_mode="Markdown"
     )
 
-# Comando /about
 async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /about per informazioni sul bot."""
     await update.message.reply_text(
         "Questo bot è stato creato da [@Raffosbaffos](https://t.me/Raffosbaffos)!\n"
-        "Per qualsiasi problema, contattatemi direttamente! :D\n\n"
-        "Inoltre, puoi usare il comando /cancellacollezione per eliminare l'intera tua collezione di carte!",
+        "Per qualsiasi problema, contattatemi direttamente! :D",
         parse_mode="Markdown"
     )
 
@@ -262,13 +196,9 @@ def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("apri", apri))
     application.add_handler(CommandHandler("collezione", collezione))
-    application.add_handler(CommandHandler("cancellacollezione", cancellacollezione))
     application.add_handler(CommandHandler("help", help))
     application.add_handler(CommandHandler("bash", bash))
     application.add_handler(CommandHandler("about", about))
-
-    # Aggiungi il gestore per il callback dei pulsanti inline
-    application.add_handler(CallbackQueryHandler(gestione_cancellazione))
 
     # Configura il webhook (modifica l'URL del webhook)
     application.run_webhook(
