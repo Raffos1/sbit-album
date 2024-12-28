@@ -818,7 +818,8 @@
     },
     "994638112": {
         "comune": [
-            "(87) KaraliSmash"
+            "(87) KaraliSmash",
+            "(94) Skydago"
         ],
         "rara": [
             "(S7) Masterclass 3: Karma",
@@ -828,6 +829,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T22:21:44.189241",
-        "pack_reserve": 6
+        "pack_reserve": 5
     }
 }
