@@ -439,10 +439,12 @@
         "comune": [
             "(20) Dani"
         ],
-        "rara": [],
+        "rara": [
+            "(S7) Masterclass 3: Karma"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:49:39.132799",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
