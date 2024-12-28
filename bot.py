@@ -3,7 +3,6 @@ from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQuer
 import os
 import random
 import json
-import sqlite3
 from datetime import datetime, timedelta
 
 # File delle carte organizzati per rarità
@@ -25,79 +24,17 @@ RARITY_PROBABILITIES = {
 # Collezione utenti
 user_collections = {}
 
-def init_db():
-    # Connessione al database SQLite (crea il file se non esiste)
-    conn = sqlite3.connect('user_collections.db')
-    cursor = conn.cursor()
-    
-    # Crea la tabella se non esiste già
-    cursor.execute('''
-    CREATE TABLE IF NOT EXISTS collections (
-        user_id TEXT PRIMARY KEY,
-        comune TEXT,
-        rara TEXT,
-        epica TEXT,
-        leggendaria TEXT,
-        last_opened TEXT,
-        pack_reserve INTEGER
-    )
-    ''')
-    
-    conn.commit()
-    conn.close()
-
+# Funzione per caricare le collezioni degli utenti (se si usa un file JSON per persistere i dati)
 def load_collections():
     global user_collections
-    conn = sqlite3.connect('user_collections.db')
-    cursor = conn.cursor()
+    if os.path.exists("user_collections.json"):
+        with open("user_collections.json", "r") as f:
+            user_collections = json.load(f)
 
-    # Recupera tutte le collezioni degli utenti
-    cursor.execute('SELECT * FROM collections')
-    rows = cursor.fetchall()
-
-    user_collections = {}
-    for row in rows:
-        user_id = row[0]
-        user_collections[user_id] = {
-            "comune": row[1].split(',') if row[1] else [],
-            "rara": row[2].split(',') if row[2] else [],
-            "epica": row[3].split(',') if row[3] else [],
-            "leggendaria": row[4].split(',') if row[4] else [],
-            "last_opened": row[5],
-            "pack_reserve": row[6]
-        }
-
-    conn.close()
-
+# Funzione per salvare le collezioni degli utenti
 def save_collections():
-    conn = sqlite3.connect('user_collections.db')
-    cursor = conn.cursor()
-
-    for user_id, data in user_collections.items():
-        # Prepara i dati da inserire o aggiornare
-        comune = ','.join(data["comune"])
-        rara = ','.join(data["rara"])
-        epica = ','.join(data["epica"])
-        leggendaria = ','.join(data["leggendaria"])
-        last_opened = data["last_opened"]
-        pack_reserve = data["pack_reserve"]
-
-        # Controlla se l'utente esiste già nel database
-        cursor.execute('''
-        INSERT INTO collections (user_id, comune, rara, epica, leggendaria, last_opened, pack_reserve)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-        ON CONFLICT(user_id) DO UPDATE SET
-            comune = ?,
-            rara = ?,
-            epica = ?,
-            leggendaria = ?,
-            last_opened = ?,
-            pack_reserve = ?
-        ''', (user_id, comune, rara, epica, leggendaria, last_opened, pack_reserve,
-              comune, rara, epica, leggendaria, last_opened, pack_reserve))
-
-    conn.commit()
-    conn.close()
+    with open("user_collections.json", "w") as f:
+        json.dump(user_collections, f)
 
 # Carica le carte dai file di testo
 def load_cards():
@@ -397,9 +334,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 def main():
     """Avvia il bot."""
-    # Inizializza il database
-    init_db()
-
     # Carica le collezioni esistenti
     load_collections()
 
