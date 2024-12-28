@@ -308,10 +308,12 @@
             "(70) wally raccoon",
             "(7) Jungle"
         ],
-        "rara": [],
+        "rara": [
+            "(I5) ICARUS 2024: M.Pop0"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:21:26.694286",
-        "pack_reserve": 3
+        "pack_reserve": 2
     }
 }
