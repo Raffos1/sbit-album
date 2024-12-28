@@ -1,9 +1,13 @@
 {
     "973326183": {
-        "comune": [],
+        "comune": [
+            "(10) MVarmata"
+        ],
         "rara": [],
         "epica": [],
-        "leggendaria": []
+        "leggendaria": [],
+        "pack_reserve": 9,
+        "last_opened": "2024-12-28T16:57:36.374089"
     },
     "5012647184": {
         "comune": [
