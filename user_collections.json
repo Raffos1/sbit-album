@@ -10,10 +10,12 @@
             "(66) Manhattan",
             "(151) Terrons Crew"
         ],
-        "rara": [],
+        "rara": [
+            "(S1) Masterclass 3: y0lT"
+        ],
         "epica": [],
         "leggendaria": [],
-        "pack_reserve": 2,
+        "pack_reserve": 1,
         "last_opened": "2024-12-28T15:35:56.707187"
     },
     "5012647184": {
