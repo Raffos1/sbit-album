@@ -163,13 +163,15 @@
         "pack_reserve": 0
     },
     "452460767": {
-        "comune": [],
+        "comune": [
+            "(104) Raffobaffo"
+        ],
         "rara": [
             "(I7) ICARUS 2024: Donut"
         ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:05:45.992123",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
