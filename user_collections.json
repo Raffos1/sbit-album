@@ -379,7 +379,8 @@
         "comune": [
             "(41) Exile",
             "(163) Ryusei",
-            "(158) Jigglypoly"
+            "(158) Jigglypoly",
+            "(154) Bless"
         ],
         "rara": [],
         "epica": [
@@ -388,6 +389,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:33:25.187927",
-        "pack_reserve": 5
+        "pack_reserve": 4
     }
 }
