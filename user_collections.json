@@ -410,7 +410,8 @@
             "(110) il socio"
         ],
         "rara": [
-            "(S5) Masterclass 3: DaSquid"
+            "(S5) Masterclass 3: DaSquid",
+            "(S6) Masterclass 3: Mattyus"
         ],
         "epica": [
             "(LG2) Lost Gem: Rybaia"
@@ -419,6 +420,6 @@
             "ALT ART 18"
         ],
         "last_opened": "2024-12-28T17:36:43.485100",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
