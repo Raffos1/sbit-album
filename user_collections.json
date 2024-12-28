@@ -672,9 +672,11 @@
             "(S3) Masterclass 3: Meercko",
             "(S4) Masterclass 3: NFL"
         ],
-        "epica": [],
+        "epica": [
+            "(LG6) Lost Gem: Loci_AF"
+        ],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:20:54.727806",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
