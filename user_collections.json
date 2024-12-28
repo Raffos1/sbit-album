@@ -1,22 +1,9 @@
 {
     "973326183": {
-        "comune": [
-            "(148) Osamudiame",
-            "(38) Luffy",
-            "(175) Ragazzo Sam",
-            "(142) Cu-Stefano",
-            "(111) AeroPancake",
-            "(19) BlatoZardd",
-            "(165) ToSmash",
-            "(169) Fede64",
-            "(123) Smash Piemonte",
-            "(153) Alby"
-        ],
+        "comune": [],
         "rara": [],
         "epica": [],
-        "leggendaria": [],
-        "last_opened": "2024-12-28T15:27:03.820550",
-        "pack_reserve": 0
+        "leggendaria": []
     },
     "5012647184": {
         "comune": [
@@ -37,6 +24,6 @@
             "ALT ART 12"
         ],
         "last_opened": "2024-12-28T15:29:29.858063",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
