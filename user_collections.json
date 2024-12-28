@@ -819,7 +819,8 @@
     "994638112": {
         "comune": [
             "(87) KaraliSmash",
-            "(94) Skydago"
+            "(94) Skydago",
+            "(137) Team Pesto"
         ],
         "rara": [
             "(S7) Masterclass 3: Karma",
@@ -832,6 +833,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T22:21:44.189241",
-        "pack_reserve": 2
+        "pack_reserve": 0
     }
 }
