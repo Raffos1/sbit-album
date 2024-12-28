@@ -554,8 +554,10 @@
         "epica": [
             "(HB3) Hidden Boss: M4E"
         ],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 12"
+        ],
         "last_opened": "2024-12-28T18:14:24.076485",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
