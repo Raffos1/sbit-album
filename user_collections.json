@@ -126,7 +126,8 @@
             "(68) PigoPreacher",
             "(79) IchnoSmash",
             "(102) Naive",
-            "(12) ProMeteor"
+            "(12) ProMeteor",
+            "(123) Smash Piemonte"
         ],
         "rara": [
             "(I1) ICARUS 2024: Bloom4Eva"
@@ -136,6 +137,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T16:57:21.602905",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
