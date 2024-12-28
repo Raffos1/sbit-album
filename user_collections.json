@@ -441,8 +441,10 @@
             "(S4) Masterclass 3: NFL"
         ],
         "epica": [],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 24"
+        ],
         "last_opened": "2024-12-28T17:43:52.319067",
-        "pack_reserve": 4
+        "pack_reserve": 3
     }
 }
