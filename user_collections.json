@@ -32,8 +32,10 @@
             "(CC5) Community Chosen: Bosco pop-off",
             "(HB3) Hidden Boss: M4E"
         ],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 12"
+        ],
         "last_opened": "2024-12-28T15:29:29.858063",
-        "pack_reserve": 3
+        "pack_reserve": 2
     }
 }
