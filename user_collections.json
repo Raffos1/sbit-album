@@ -348,12 +348,14 @@
             "(40) Pierfra",
             "(161) Pigna"
         ],
-        "rara": [],
+        "rara": [
+            "(R3) Ducato: Ragnell: y0lT"
+        ],
         "epica": [
             "(HB6) Hidden Boss: Sh\u00fcan"
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:23:51.578527",
-        "pack_reserve": 2
+        "pack_reserve": 1
     }
 }
