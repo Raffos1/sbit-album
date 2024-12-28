@@ -131,9 +131,11 @@
         "rara": [
             "(I1) ICARUS 2024: Bloom4Eva"
         ],
-        "epica": [],
+        "epica": [
+            "(CC5) Community Chosen: Bosco pop-off"
+        ],
         "leggendaria": [],
         "last_opened": "2024-12-28T16:57:21.602905",
-        "pack_reserve": 2
+        "pack_reserve": 1
     }
 }
