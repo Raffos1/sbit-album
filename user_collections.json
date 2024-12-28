@@ -773,7 +773,8 @@
     "2076511453": {
         "comune": [
             "(168) DxK",
-            "(13) Rawbean"
+            "(13) Rawbean",
+            "(143) Doki"
         ],
         "rara": [
             "(R5) Ducato: Ragnell: NFL",
@@ -784,6 +785,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:42:42.902366",
-        "pack_reserve": 4
+        "pack_reserve": 3
     }
 }
