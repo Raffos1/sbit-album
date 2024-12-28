@@ -759,5 +759,15 @@
         "leggendaria": [],
         "last_opened": "2024-12-28T19:31:49.650139",
         "pack_reserve": 3
+    },
+    "241882038": {
+        "comune": [],
+        "rara": [],
+        "epica": [
+            "(HB5) Hidden Boss: Meercko"
+        ],
+        "leggendaria": [],
+        "last_opened": "2024-12-28T19:34:41.535273",
+        "pack_reserve": 9
     }
 }
