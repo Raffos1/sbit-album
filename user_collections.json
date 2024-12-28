@@ -562,7 +562,8 @@
     },
     "140867194": {
         "comune": [
-            "(132) Ink"
+            "(132) Ink",
+            "(52) Tunalink"
         ],
         "rara": [],
         "epica": [
@@ -570,6 +571,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:17:15.453060",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
