@@ -382,11 +382,13 @@
             "(101) Mia Nonna",
             "(136) Voix"
         ],
-        "rara": [],
+        "rara": [
+            "(R1) Ducato: Ragnell: M4E"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:29:20.372362",
-        "pack_reserve": 8
+        "pack_reserve": 7
     },
     "543040202": {
         "comune": [
