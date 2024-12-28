@@ -771,7 +771,9 @@
         "pack_reserve": 9
     },
     "2076511453": {
-        "comune": [],
+        "comune": [
+            "(168) DxK"
+        ],
         "rara": [
             "(R5) Ducato: Ragnell: NFL",
             "(I2) ICARUS 2024: Oryon"
@@ -779,6 +781,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:42:42.902366",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
