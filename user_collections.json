@@ -697,13 +697,15 @@
         "pack_reserve": 8
     },
     "271766708": {
-        "comune": [],
+        "comune": [
+            "(104) Raffobaffo"
+        ],
         "rara": [
             "(S5) Masterclass 3: DaSquid"
         ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:23:24.324553",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
