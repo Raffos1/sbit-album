@@ -1,24 +1,24 @@
-y0lT Masterclass 3
-GANDIX Masterclass 3
-Meercko Masterclass 3
-NFL Masterclass 3
-DaSquid Masterclass 3
-Mattyus Masterclass 3
-Karma Masterclass 3
-MVarmata Masterclass 3
-Bloom4Eva ICARUS 2024
-Oryon ICARUS 2024
-Ente ICARUS 2024
-Susu ICARUS 2024
-M.Pop0 ICARUS 2024
-y0lT ICARUS 2024
-Donut ICARUS 2024
-quiK ICARUS 2024
-M4E Ducato: Ragnell
-Weijie01 Ducato: Ragnell
-y0lT Ducato: Ragnell
-Meercko Ducato: Ragnell
-NFL Ducato: Ragnell
-Forze Ducato: Ragnell
-Siron Ducato: Ragnell
-Genarog Ducato: Ragnell
+(S1) Masterclass 3: y0lT
+(S2) Masterclass 3: GANDIX
+(S3) Masterclass 3: Meercko
+(S4) Masterclass 3: NFL
+(S5) Masterclass 3: DaSquid
+(S6) Masterclass 3: Mattyus
+(S7) Masterclass 3: Karma
+(S8) Masterclass 3: MVarmata
+(I1) ICARUS 2024: Bloom4Eva
+(I2) ICARUS 2024: Oryon
+(I3) ICARUS 2024: Ente
+(I4) ICARUS 2024: Susu
+(I5) ICARUS 2024: M.Pop0
+(I6) ICARUS 2024: y0lT
+(I7) ICARUS 2024: Donut
+(I8) ICARUS 2024: quiK
+(R1) Ducato: Ragnell: M4E
+(R2) Ducato: Ragnell: Weijie01
+(R3) Ducato: Ragnell: y0lT
+(R4) Ducato: Ragnell: Meercko
+(R5) Ducato: Ragnell: NFL
+(R6) Ducato: Ragnell: Forze
+(R7) Ducato: Ragnell: Siron
+(R8) Ducato: Ragnell: Genarog

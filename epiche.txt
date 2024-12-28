@@ -1,18 +1,18 @@
-Le Sedie
-Piero che zittisce la folla
-Midoriss e i ventilatori
-Vittoria M4E vs Bloom4Eva
-Bosco pop-off
-Fake vs Pichu
-Benzene
-Foster_Golden
-M4E
-Mapiz
-Meercko
-Shüan
-Enygma
-Rybaia
-Vincent
-Bluelink
-Lanz
-Loci_AF
+(CC1) Community Chosen: Le Sedie
+(CC2) Community Chosen: Piero che zittisce la folla
+(CC3) Community Chosen: Midoriss e i ventilatori
+(CC4) Community Chosen: Vittoria M4E vs Bloom4Eva
+(CC5) Community Chosen: Bosco pop-off
+(CC6) Community Chosen: Fake vs Pichu
+(HB1) Hidden Boss: Benzene
+(HB2) Hidden Boss: Foster_Golden
+(HB3) Hidden Boss: M4E
+(HB4) Hidden Boss: Mapiz
+(HB5) Hidden Boss: Meercko
+(HB6) Hidden Boss: Shüan
+(LG1) Lost Gem: Enygma
+(LG2) Lost Gem: Rybaia
+(LG3) Lost Gem: Vincent
+(LG4) Lost Gem: Bluelink
+(LG5) Lost Gem: Lanz
+(LG6) Lost Gem: Loci_AF

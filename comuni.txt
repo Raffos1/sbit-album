@@ -1,179 +1,179 @@
-Deniso
-Alma Mater Smashorum
-Midoriss TO
-bertoleo
-Cano
-Extrick
-Geoffo
-Jungle
-Keyga
-Midoriss
-MVarmata
-NFL
-ProMeteor
-Rawbean
-Signor_Lei
-Altomare Smash
-Porké TO
-Alpha
-Ben97
-BlatoZardd
-Dani
-Forze
-Lore
-Malex
-One O'Seven
-Peppino
-Porké
-Sasyzza
-Zio Al
-Apulia in Smash
-Luffy
-Andry
-b00bs
-Claude
-GA
-Hastur
-Kiavik
-Kurabu
-Luffy
-metasaint
-Pierfra
-Exile
-Mettyu
-Ducato di Milano
-Cluoddo e DonCascone TO
-Andre
-ccactuss
-DonCascone
-Final Mix
-Genarog
-Mago
-Siron
-Tunalink
-Ven
-Weijie01
-y0lT
-Zhab
-Elysium
-Mave
-Atlante
-B.Garry
-burzum
-Drapion
-Karma
-Lonke
-Lync
-Manhattan
-Mattyus
-PigoPreacher
-Queen
-wally raccoon
-GrifoSmash
-KennyOrnitorinco TO
-Burglur
-CDG
-KennyOrnitorinco
-Dinok
-ElMartho
-Jimmy
-IchnoSmash
-LegendDario TO
-CristOK
-Francyyy
-Gogh
-Jerko
-Kyoma
-LegendDario
-KaraliSmash
-Efisio TO
-Gionno
-Irene
-Kartina
-Sadler
-Serra
-Skydago
-Marchigian Crew
-Tiger TO
-Bafio
-Gallax
-GANDIX
-Ma T_T eO
-Mia Nonna
-Naive
-Orochix
-Raffobaffo
-ShiYa
-TheSunTitan
-Tiger
-EX
-Serenissima Smash
-il socio
-AeroPancake
-Bosco
-firstbones
-Loewe
-LorenzoMS
-Olaf
-Shad
-Sykko
-Syntherface
-Yazbat
-Zante
-Yggi
-Smash Piemonte
-Deerd TO
-Azryel
-beto
-Ciam
-D.I.B.L.
-Deerd
-Gelo
-Hylien
-Ink
-lazycomet
-Lionel Bell
-Tendo
-Voix
-Team Pesto
-DpAndrew TO
-Burzof
-Cacca Dura
-Corien
-Cu-Stefano
-Doki
-DpAndrew
-genchi
-Gueedo
-Mattroid
-Osamudiame
-Picio
-Spazio
-Terrons Crew
-Raicuta TO
-Alby
-Bless
-Dilemma
-alienh
-ggentlemenn
-Jigglypoly
-Margi
-Paky
-Pigna
-Raicuta
-Ryusei
-Sim-Max
-ToSmash
-Crowind TO
-Crowind
-DxK
-Fede64
-Fyze
-MIG
-Ndrept
-Oshawott2206
-Phoenix
-Ragazzo Sam
-Sir Pistak
-SoulHikari
-Spettrofotometro
+(0) Deniso  
+(1) Alma Mater Smashorum  
+(2) Midoriss TO  
+(3) bertoleo  
+(4) Cano  
+(5) Extrick  
+(6) Geoffo  
+(7) Jungle  
+(8) Keyga  
+(9) Midoriss  
+(10) MVarmata  
+(11) NFL  
+(12) ProMeteor  
+(13) Rawbean  
+(14) Signor_Lei  
+(15) Altomare Smash  
+(16) Porké TO  
+(17) Alpha  
+(18) Ben97  
+(19) BlatoZardd  
+(20) Dani  
+(21) Forze  
+(22) Lore  
+(23) Malex  
+(24) One O'Seven  
+(25) Peppino  
+(26) Porké  
+(27) Sasyzza  
+(28) Zio Al  
+(29) Apulia in Smash  
+(30) Luffy  
+(31) Andry  
+(32) b00bs  
+(33) Claude  
+(34) GA  
+(35) Hastur  
+(36) Kiavik  
+(37) Kurabu  
+(38) Luffy  
+(39) metasaint  
+(40) Pierfra  
+(41) Exile  
+(42) Mettyu  
+(43) Ducato di Milano  
+(44) Cluoddo e DonCascone TO  
+(45) Andre  
+(46) ccactuss  
+(47) DonCascone  
+(48) Final Mix  
+(49) Genarog  
+(50) Mago  
+(51) Siron  
+(52) Tunalink  
+(53) Ven  
+(54) Weijie01  
+(55) y0lT  
+(56) Zhab  
+(57) Elysium  
+(58) Mave  
+(59) Atlante  
+(60) B.Garry  
+(61) burzum  
+(62) Drapion  
+(63) Karma  
+(64) Lonke  
+(65) Lync  
+(66) Manhattan  
+(67) Mattyus  
+(68) PigoPreacher  
+(69) Queen  
+(70) wally raccoon  
+(71) GrifoSmash  
+(72) KennyOrnitorinco TO  
+(73) Burglur  
+(74) CDG  
+(75) KennyOrnitorinco  
+(76) Dinok  
+(77) ElMartho  
+(78) Jimmy  
+(79) IchnoSmash  
+(80) LegendDario TO  
+(81) CristOK  
+(82) Francyyy  
+(83) Gogh  
+(84) Jerko  
+(85) Kyoma  
+(86) LegendDario  
+(87) KaraliSmash  
+(88) Efisio TO  
+(89) Gionno  
+(90) Irene  
+(91) Kartina  
+(92) Sadler  
+(93) Serra  
+(94) Skydago  
+(95) Marchigian Crew  
+(96) Tiger TO  
+(97) Bafio  
+(98) Gallax  
+(99) GANDIX  
+(100) Ma T_T eO  
+(101) Mia Nonna  
+(102) Naive  
+(103) Orochix  
+(104) Raffobaffo  
+(105) ShiYa  
+(106) TheSunTitan  
+(107) Tiger  
+(108) EX  
+(109) Serenissima Smash  
+(110) il socio  
+(111) AeroPancake  
+(112) Bosco  
+(113) firstbones  
+(114) Loewe  
+(115) LorenzoMS  
+(116) Olaf  
+(117) Shad  
+(118) Sykko  
+(119) Syntherface  
+(120) Yazbat  
+(121) Zante  
+(122) Yggi  
+(123) Smash Piemonte  
+(124) Deerd TO  
+(125) Azryel  
+(126) beto  
+(127) Ciam  
+(128) D.I.B.L.  
+(129) Deerd  
+(130) Gelo  
+(131) Hylien  
+(132) Ink  
+(133) lazycomet  
+(134) Lionel Bell  
+(135) Tendo  
+(136) Voix  
+(137) Team Pesto  
+(138) DpAndrew TO  
+(139) Burzof  
+(140) Cacca Dura  
+(141) Corien  
+(142) Cu-Stefano  
+(143) Doki  
+(144) DpAndrew  
+(145) genchi  
+(146) Gueedo  
+(147) Mattroid  
+(148) Osamudiame  
+(149) Picio  
+(150) Spazio  
+(151) Terrons Crew  
+(152) Raicuta TO  
+(153) Alby  
+(154) Bless  
+(155) Dilemma  
+(156) alienh  
+(157) ggentlemenn  
+(158) Jigglypoly  
+(159) Margi  
+(160) Paky  
+(161) Pigna  
+(162) Raicuta  
+(163) Ryusei  
+(164) Sim-Max  
+(165) ToSmash  
+(166) Crowind TO  
+(167) Crowind  
+(168) DxK  
+(169) Fede64  
+(170) Fyze  
+(171) MIG  
+(172) Ndrept  
+(173) Oshawott2206  
+(174) Phoenix  
+(175) Ragazzo Sam  
+(176) Sir Pistak  
+(177) SoulHikari  
+(178) Spettrofotometro  
