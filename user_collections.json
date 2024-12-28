@@ -10,12 +10,14 @@
             "Deerd",
             "ccactuss"
         ],
-        "rara": [],
+        "rara": [
+            "Meercko Ducato: Ragnell"
+        ],
         "epica": [
             "Benzene"
         ],
         "leggendaria": [],
-        "pack_reserve": 1,
+        "pack_reserve": 0,
         "last_opened": "2024-12-28T14:30:26.210791"
     }
 }
