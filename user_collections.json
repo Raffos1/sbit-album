@@ -317,5 +317,15 @@
         "leggendaria": [],
         "last_opened": "2024-12-28T17:21:26.694286",
         "pack_reserve": 0
+    },
+    "651176805": {
+        "comune": [],
+        "rara": [],
+        "epica": [
+            "(LG1) Lost Gem: Enygma"
+        ],
+        "leggendaria": [],
+        "last_opened": "2024-12-28T17:23:17.174102",
+        "pack_reserve": 9
     }
 }
