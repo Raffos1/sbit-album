@@ -64,12 +64,13 @@
     "440215200": {
         "comune": [
             "(12) ProMeteor",
-            "(147) Mattroid"
+            "(147) Mattroid",
+            "(65) Lync"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T15:41:39.779010",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
