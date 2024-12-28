@@ -46,6 +46,10 @@ def load_collections():
         user_collections = json.loads(data)
     else:
         print("Nessuna collezione trovata su GitHub. Creazione nuova...")
+        
+def escape_markdown(text):
+    escape_chars = ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
+    return ''.join(f'\\{char}' if char in escape_chars else char for char in text)
 
 # Funzione per salvare le collezioni degli utenti
 def save_collections():
@@ -220,19 +224,16 @@ async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
     user = update.effective_user
     user_id = str(user.id)
 
-    # Verifica se l'utente ha una collezione
     if user_id not in user_collections or not any(user_collections[user_id].values()):
         await update.message.reply_text("Non hai ancora ottenuto nessuna carta!", parse_mode="Markdown")
         return
 
     # Crea un messaggio con la collezione dell'utente, suddivisa per rarità
-    collection_message = f"🎴 **Collezione di {user.first_name}:**\n\n"
+    collection_message = f"🎴 **Collezione di {escape_markdown(user.first_name)}:**\n\n"
     
     for rarity in ["comune", "rara", "epica", "leggendaria"]:
-        # Carte possedute per questa rarità
         owned_cards = user_collections[user_id][rarity]
         if owned_cards:
-            # Modifica il nome della rarità per renderlo plurale correttamente
             if rarity == "comune":
                 rarity_plural = "Comuni"
             elif rarity == "rara":
@@ -243,11 +244,13 @@ async def collezione(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None
                 rarity_plural = "Leggendarie"
                 
             collection_message += f"**{rarity_plural}:**\n"
-            # Ordina le carte in base all'ordine nei file
-            ordered_cards = [card for card in CARDS[rarity] if card in owned_cards]
+            
+            # Escapa ogni carta prima di aggiungerla al messaggio
+            ordered_cards = [escape_markdown(card) for card in CARDS[rarity] if card in owned_cards]
             collection_message += "\n".join(ordered_cards) + "\n\n"
 
-    await update.message.reply_text(collection_message, parse_mode="Markdown")
+    # Usa MarkdownV2 per una formattazione più sicura
+    await update.message.reply_text(collection_message, parse_mode="MarkdownV2")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Usa il comando /start per iniziare!"""
