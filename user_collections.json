@@ -406,7 +406,8 @@
             "(22) Lore",
             "(160) Paky",
             "(71) GrifoSmash",
-            "(139) Burzof"
+            "(139) Burzof",
+            "(110) il socio"
         ],
         "rara": [
             "(S5) Masterclass 3: DaSquid"
@@ -418,6 +419,6 @@
             "ALT ART 18"
         ],
         "last_opened": "2024-12-28T17:36:43.485100",
-        "pack_reserve": 2
+        "pack_reserve": 1
     }
 }
