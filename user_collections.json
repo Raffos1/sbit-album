@@ -1,9 +1,13 @@
 {
     "973326183": {
-        "comune": [],
+        "comune": [
+            "(84) Jerko"
+        ],
         "rara": [],
         "epica": [],
-        "leggendaria": []
+        "leggendaria": [],
+        "pack_reserve": 9,
+        "last_opened": "2024-12-28T15:37:45.945211"
     },
     "5012647184": {
         "comune": [
