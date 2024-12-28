@@ -86,10 +86,12 @@
             "(53) Ven",
             "(135) Tendo"
         ],
-        "rara": [],
+        "rara": [
+            "(I5) ICARUS 2024: M.Pop0"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T15:43:43.194326",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
