@@ -540,12 +540,13 @@
     },
     "598862485": {
         "comune": [
-            "(96) Tiger TO"
+            "(96) Tiger TO",
+            "(112) Bosco"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:14:24.076485",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
