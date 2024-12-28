@@ -805,13 +805,15 @@
         "pack_reserve": 5
     },
     "1481543029": {
-        "comune": [],
+        "comune": [
+            "(85) Kyoma"
+        ],
         "rara": [
             "(S1) Masterclass 3: y0lT"
         ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T21:23:52.635090",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
