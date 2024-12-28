@@ -5,10 +5,12 @@
             "(149) Picio",
             "(158) Jigglypoly"
         ],
-        "rara": [],
+        "rara": [
+            "(R4) Ducato: Ragnell: Meercko"
+        ],
         "epica": [],
         "leggendaria": [],
-        "pack_reserve": 7,
+        "pack_reserve": 6,
         "last_opened": "2024-12-28T15:13:01.264945"
     }
 }
