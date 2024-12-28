@@ -227,10 +227,12 @@
         "comune": [
             "(136) Voix"
         ],
-        "rara": [],
+        "rara": [
+            "(I2) ICARUS 2024: Oryon"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:10:46.043545",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
