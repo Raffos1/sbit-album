@@ -745,12 +745,13 @@
     },
     "840988003": {
         "comune": [
-            "(168) DxK"
+            "(168) DxK",
+            "(58) Mave TO"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:31:49.650139",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
