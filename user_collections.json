@@ -319,7 +319,9 @@
         "pack_reserve": 0
     },
     "651176805": {
-        "comune": [],
+        "comune": [
+            "(41) Exile"
+        ],
         "rara": [
             "(I8) ICARUS 2024: quiK",
             "(S2) Masterclass 3: GANDIX"
@@ -330,7 +332,7 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:23:17.174102",
-        "pack_reserve": 6
+        "pack_reserve": 5
     },
     "5712533968": {
         "comune": [
