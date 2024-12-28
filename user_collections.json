@@ -63,12 +63,13 @@
     },
     "440215200": {
         "comune": [
-            "(12) ProMeteor"
+            "(12) ProMeteor",
+            "(147) Mattroid"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T15:41:39.779010",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
