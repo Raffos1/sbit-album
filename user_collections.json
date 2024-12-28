@@ -217,14 +217,15 @@
         "comune": [
             "(54) Weijie01",
             "(150) Spazio",
-            "(7) Jungle"
+            "(7) Jungle",
+            "(12) ProMeteor"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [
             "ALT ART 2"
         ],
-        "pack_reserve": 6,
+        "pack_reserve": 5,
         "last_opened": "2024-12-28T18:40:33.822178"
     },
     "924306650": {
