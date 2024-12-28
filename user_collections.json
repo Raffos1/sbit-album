@@ -503,7 +503,8 @@
             "(96) Tiger TO",
             "(168) DxK",
             "(147) Mattroid",
-            "(106) TheSunTitan"
+            "(106) TheSunTitan",
+            "(48) Final Mix"
         ],
         "rara": [
             "(I2) ICARUS 2024: Oryon"
@@ -513,6 +514,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:01:38.182397",
-        "pack_reserve": 2
+        "pack_reserve": 1
     }
 }
