@@ -471,9 +471,11 @@
         ],
         "rara": [],
         "epica": [],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 6"
+        ],
         "last_opened": "2024-12-28T17:54:04.490857",
-        "pack_reserve": 8
+        "pack_reserve": 7
     },
     "31875280": {
         "comune": [
