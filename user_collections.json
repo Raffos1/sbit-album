@@ -320,7 +320,7 @@
     },
     "651176805": {
         "comune": [
-            "(41) Exile"
+            "(74) CDG"
         ],
         "rara": [
             "(I8) ICARUS 2024: quiK",
@@ -336,13 +336,12 @@
     },
     "5712533968": {
         "comune": [
-            "(120) Yazbat",
-            "(115) LorenzoMS"
+            "(120) Yazbat"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:23:51.578527",
-        "pack_reserve": 8
+        "pack_reserve": 9
     }
 }
