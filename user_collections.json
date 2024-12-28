@@ -226,7 +226,8 @@
     "924306650": {
         "comune": [
             "(136) Voix",
-            "(166) Crowind TO"
+            "(166) Crowind TO",
+            "(48) Final Mix"
         ],
         "rara": [
             "(I2) ICARUS 2024: Oryon"
@@ -234,6 +235,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:10:46.043545",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
