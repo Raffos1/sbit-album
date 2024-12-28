@@ -1,9 +1,13 @@
 {
     "973326183": {
-        "comune": [],
+        "comune": [
+            "(62) Drapion"
+        ],
         "rara": [],
         "epica": [],
-        "leggendaria": []
+        "leggendaria": [],
+        "pack_reserve": 9,
+        "last_opened": "2024-12-28T15:35:56.707187"
     },
     "5012647184": {
         "comune": [
