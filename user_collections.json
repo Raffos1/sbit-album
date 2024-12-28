@@ -300,12 +300,13 @@
     },
     "124427489": {
         "comune": [
-            "(91) Kartina"
+            "(91) Kartina",
+            "(167) Crowind"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:21:26.694286",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
