@@ -220,12 +220,14 @@
             "(7) Jungle",
             "(12) ProMeteor"
         ],
-        "rara": [],
+        "rara": [
+            "(S8) Masterclass 3: MVarmata"
+        ],
         "epica": [],
         "leggendaria": [
             "ALT ART 2"
         ],
-        "pack_reserve": 5,
+        "pack_reserve": 4,
         "last_opened": "2024-12-28T18:40:33.822178"
     },
     "924306650": {
