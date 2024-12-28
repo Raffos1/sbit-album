@@ -377,7 +377,8 @@
     "543040202": {
         "comune": [
             "(41) Exile",
-            "(163) Ryusei"
+            "(163) Ryusei",
+            "(158) Jigglypoly"
         ],
         "rara": [],
         "epica": [
@@ -386,6 +387,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:33:25.187927",
-        "pack_reserve": 6
+        "pack_reserve": 5
     }
 }
