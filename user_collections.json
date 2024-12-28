@@ -439,7 +439,8 @@
         "comune": [
             "(20) Dani",
             "(2) Midoriss TO",
-            "(128) D.I.B.L."
+            "(128) D.I.B.L.",
+            "(54) Weijie01"
         ],
         "rara": [
             "(S7) Masterclass 3: Karma"
@@ -447,6 +448,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:49:39.132799",
-        "pack_reserve": 6
+        "pack_reserve": 5
     }
 }
