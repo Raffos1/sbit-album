@@ -307,7 +307,8 @@
             "(151) Terrons Crew",
             "(70) wally raccoon",
             "(7) Jungle",
-            "(84) Jerko"
+            "(84) Jerko",
+            "(1) Alma Mater Smashorum"
         ],
         "rara": [
             "(I5) ICARUS 2024: M.Pop0"
@@ -315,6 +316,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:21:26.694286",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
