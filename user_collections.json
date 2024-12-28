@@ -23,12 +23,14 @@
             "(165) ToSmash",
             "(115) LorenzoMS"
         ],
-        "rara": [],
+        "rara": [
+            "(R3) Ducato: Ragnell: y0lT"
+        ],
         "epica": [
             "(CC5) Community Chosen: Bosco pop-off"
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T15:29:29.858063",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
