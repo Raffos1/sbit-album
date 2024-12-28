@@ -430,24 +430,9 @@
         "pack_reserve": 0
     },
     "911177756": {
-        "comune": [
-            "(129) Deerd",
-            "(176) Sir Pistak",
-            "(18) Ben97",
-            "(125) Azryel",
-            "(152) Raicuta TO",
-            "(92) Sadler",
-            "(106) TheSunTitan",
-            "(137) Team Pesto"
-        ],
-        "rara": [
-            "(S4) Masterclass 3: NFL"
-        ],
+        "comune": [],
+        "rara": [],
         "epica": [],
-        "leggendaria": [
-            "ALT ART 24"
-        ],
-        "last_opened": "2024-12-28T17:43:52.319067",
-        "pack_reserve": 0
+        "leggendaria": []
     }
 }
