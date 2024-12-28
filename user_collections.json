@@ -709,9 +709,11 @@
             "(S5) Masterclass 3: DaSquid"
         ],
         "epica": [],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 22"
+        ],
         "last_opened": "2024-12-28T19:23:24.324553",
-        "pack_reserve": 5
+        "pack_reserve": 4
     },
     "456470249": {
         "comune": [
