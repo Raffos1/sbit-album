@@ -214,10 +214,14 @@
         "pack_reserve": 9
     },
     "5059521338": {
-        "comune": [],
+        "comune": [
+            "(54) Weijie01"
+        ],
         "rara": [],
         "epica": [],
-        "leggendaria": []
+        "leggendaria": [],
+        "pack_reserve": 9,
+        "last_opened": "2024-12-28T18:40:33.822178"
     },
     "924306650": {
         "comune": [
