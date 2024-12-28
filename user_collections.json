@@ -98,6 +98,16 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T15:43:43.194326",
-        "pack_reserve": 1
+        "pack_reserve": 0
+    },
+    "989288306": {
+        "comune": [],
+        "rara": [
+            "(I8) ICARUS 2024: quiK"
+        ],
+        "epica": [],
+        "leggendaria": [],
+        "last_opened": "2024-12-28T16:05:35.534151",
+        "pack_reserve": 9
     }
 }
