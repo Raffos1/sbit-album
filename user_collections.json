@@ -27,7 +27,9 @@
         "pack_reserve": 0
     },
     "982562054": {
-        "comune": [],
+        "comune": [
+            "(139) Burzof"
+        ],
         "rara": [
             "(S5) Masterclass 3: DaSquid",
             "(R2) Ducato: Ragnell: Weijie01"
@@ -35,6 +37,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T15:34:43.461503",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
