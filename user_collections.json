@@ -349,9 +349,11 @@
             "(161) Pigna"
         ],
         "rara": [],
-        "epica": [],
+        "epica": [
+            "(HB6) Hidden Boss: Sh\u00fcan"
+        ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:23:51.578527",
-        "pack_reserve": 3
+        "pack_reserve": 2
     }
 }
