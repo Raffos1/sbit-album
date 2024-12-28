@@ -214,24 +214,10 @@
         "pack_reserve": 9
     },
     "5059521338": {
-        "comune": [
-            "(79) IchnoSmash",
-            "(3) bertoleo",
-            "(23) Malex",
-            "(174) Phoenix",
-            "(128) D.I.B.L.",
-            "(96) Tiger TO",
-            "(43) Ducato di Milano",
-            "(88) Efisio TO",
-            "(57) Elysium"
-        ],
-        "rara": [
-            "(S5) Masterclass 3: DaSquid"
-        ],
+        "comune": [],
+        "rara": [],
         "epica": [],
-        "leggendaria": [],
-        "pack_reserve": 0,
-        "last_opened": "2024-12-28T17:40:13.747588"
+        "leggendaria": []
     },
     "924306650": {
         "comune": [
