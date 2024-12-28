@@ -405,7 +405,8 @@
         "comune": [
             "(22) Lore",
             "(160) Paky",
-            "(71) GrifoSmash"
+            "(71) GrifoSmash",
+            "(139) Burzof"
         ],
         "rara": [],
         "epica": [
@@ -415,6 +416,6 @@
             "ALT ART 18"
         ],
         "last_opened": "2024-12-28T17:36:43.485100",
-        "pack_reserve": 5
+        "pack_reserve": 4
     }
 }
