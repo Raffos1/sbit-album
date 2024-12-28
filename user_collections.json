@@ -585,7 +585,8 @@
             "(17) Alpha",
             "(56) Zhab",
             "(59) Atlante",
-            "(57) Elysium"
+            "(57) Elysium",
+            "(83) Gogh"
         ],
         "rara": [],
         "epica": [
@@ -593,7 +594,7 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:17:37.822497",
-        "pack_reserve": 5
+        "pack_reserve": 4
     },
     "955388363": {
         "comune": [],
