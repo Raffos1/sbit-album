@@ -505,12 +505,14 @@
             "(147) Mattroid",
             "(106) TheSunTitan"
         ],
-        "rara": [],
+        "rara": [
+            "(I2) ICARUS 2024: Oryon"
+        ],
         "epica": [
             "(HB5) Hidden Boss: Meercko"
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:01:38.182397",
-        "pack_reserve": 3
+        "pack_reserve": 2
     }
 }
