@@ -24,9 +24,11 @@
             "(115) LorenzoMS"
         ],
         "rara": [],
-        "epica": [],
+        "epica": [
+            "(CC5) Community Chosen: Bosco pop-off"
+        ],
         "leggendaria": [],
         "last_opened": "2024-12-28T15:29:29.858063",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
