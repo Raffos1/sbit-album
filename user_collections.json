@@ -334,12 +334,13 @@
     },
     "5712533968": {
         "comune": [
-            "(120) Yazbat"
+            "(120) Yazbat",
+            "(115) LorenzoMS"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:23:51.578527",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
