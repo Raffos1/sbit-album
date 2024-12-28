@@ -3,7 +3,13 @@ from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQuer
 import os
 import random
 import json
+import requests
 from datetime import datetime, timedelta
+from base64 import b64decode, b64encode
+
+GITHUB_REPO = "Raffos1/sbit-album"
+GITHUB_FILE_PATH = "user_collections.json"
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
 
 # File delle carte organizzati per rarità
 CARD_FILES = {
@@ -27,14 +33,45 @@ user_collections = {}
 # Funzione per caricare le collezioni degli utenti (se si usa un file JSON per persistere i dati)
 def load_collections():
     global user_collections
-    if os.path.exists("user_collections.json"):
-        with open("user_collections.json", "r") as f:
-            user_collections = json.load(f)
+    url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}"
+    headers = {
+        "Authorization": f"token {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    response = requests.get(url, headers=headers)
+    
+    if response.status_code == 200:
+        content = response.json()
+        data = b64decode(content['content']).decode('utf-8')
+        user_collections = json.loads(data)
+    else:
+        print("Nessuna collezione trovata su GitHub. Creazione nuova...")
 
 # Funzione per salvare le collezioni degli utenti
 def save_collections():
-    with open("user_collections.json", "w") as f:
-        json.dump(user_collections, f)
+    url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_FILE_PATH}"
+    headers = {
+        "Authorization": f"token {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+    response = requests.get(url, headers=headers)
+    sha = response.json().get('sha', None)
+
+    data = json.dumps(user_collections, indent=4)
+    encoded_data = b64encode(data.encode('utf-8')).decode('utf-8')
+
+    payload = {
+        "message": "Aggiornamento collezioni utenti",
+        "content": encoded_data,
+        "sha": sha
+    }
+    
+    save_response = requests.put(url, headers=headers, json=payload)
+    
+    if save_response.status_code == 200:
+        print("Collezioni salvate con successo su GitHub.")
+    else:
+        print(f"Errore nel salvataggio: {save_response.json()}")
 
 # Carica le carte dai file di testo
 def load_cards():
