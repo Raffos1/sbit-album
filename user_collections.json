@@ -542,7 +542,8 @@
         "comune": [
             "(96) Tiger TO",
             "(112) Bosco",
-            "(142) Cu-Stefano"
+            "(142) Cu-Stefano",
+            "(91) Kartina"
         ],
         "rara": [
             "(R7) Ducato: Ragnell: Siron",
@@ -551,6 +552,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:14:24.076485",
-        "pack_reserve": 5
+        "pack_reserve": 4
     }
 }
