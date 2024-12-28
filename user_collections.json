@@ -270,9 +270,11 @@
         "rara": [
             "(S4) Masterclass 3: NFL"
         ],
-        "epica": [],
+        "epica": [
+            "(LG5) Lost Gem: Lanz"
+        ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:13:47.376934",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
