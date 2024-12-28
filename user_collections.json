@@ -498,12 +498,13 @@
     },
     "1852830547": {
         "comune": [
-            "(103) Orochix"
+            "(103) Orochix",
+            "(88) Efisio TO"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:01:38.182397",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
