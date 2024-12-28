@@ -437,7 +437,8 @@
     },
     "946259224": {
         "comune": [
-            "(20) Dani"
+            "(20) Dani",
+            "(2) Midoriss TO"
         ],
         "rara": [
             "(S7) Masterclass 3: Karma"
@@ -445,6 +446,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:49:39.132799",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
