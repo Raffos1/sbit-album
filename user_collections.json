@@ -222,10 +222,12 @@
             "(128) D.I.B.L.",
             "(96) Tiger TO"
         ],
-        "rara": [],
+        "rara": [
+            "(S5) Masterclass 3: DaSquid"
+        ],
         "epica": [],
         "leggendaria": [],
-        "pack_reserve": 4,
+        "pack_reserve": 3,
         "last_opened": "2024-12-28T17:40:13.747588"
     },
     "924306650": {
