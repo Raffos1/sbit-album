@@ -361,12 +361,13 @@
     },
     "275035363": {
         "comune": [
-            "(101) Mia Nonna"
+            "(101) Mia Nonna",
+            "(136) Voix"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:29:20.372362",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
