@@ -1,9 +1,13 @@
 {
     "973326183": {
-        "comune": [],
+        "comune": [
+            "(71) GrifoSmash"
+        ],
         "rara": [],
         "epica": [],
-        "leggendaria": []
+        "leggendaria": [],
+        "pack_reserve": 9,
+        "last_opened": "2024-12-28T16:56:49.031383"
     },
     "5012647184": {
         "comune": [
