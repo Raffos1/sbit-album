@@ -666,7 +666,8 @@
     },
     "1023444406": {
         "comune": [
-            "(162) Raicuta"
+            "(162) Raicuta",
+            "(71) GrifoSmash"
         ],
         "rara": [
             "(S3) Masterclass 3: Meercko",
@@ -678,6 +679,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:20:54.727806",
-        "pack_reserve": 5
+        "pack_reserve": 4
     }
 }
