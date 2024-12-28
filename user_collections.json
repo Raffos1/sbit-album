@@ -223,7 +223,8 @@
             "(72) KennyOrnitorinco TO"
         ],
         "rara": [
-            "(S8) Masterclass 3: MVarmata"
+            "(S8) Masterclass 3: MVarmata",
+            "(S7) Masterclass 3: Karma"
         ],
         "epica": [
             "(CC6) Community Chosen: Fake vs Pichu"
@@ -231,7 +232,7 @@
         "leggendaria": [
             "ALT ART 2"
         ],
-        "pack_reserve": 1,
+        "pack_reserve": 0,
         "last_opened": "2024-12-28T18:40:33.822178"
     },
     "924306650": {
