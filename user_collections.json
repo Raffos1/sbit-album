@@ -9,9 +9,11 @@
             "IchnoSmash"
         ],
         "rara": [],
-        "epica": [],
+        "epica": [
+            "Benzene"
+        ],
         "leggendaria": [],
-        "pack_reserve": 4,
+        "pack_reserve": 3,
         "last_opened": "2024-12-28T14:30:26.210791"
     }
 }
