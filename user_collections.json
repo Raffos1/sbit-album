@@ -699,7 +699,8 @@
     "271766708": {
         "comune": [
             "(104) Raffobaffo",
-            "(127) Ciam"
+            "(127) Ciam",
+            "(152) Raicuta TO"
         ],
         "rara": [
             "(S5) Masterclass 3: DaSquid"
@@ -707,6 +708,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:23:24.324553",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
