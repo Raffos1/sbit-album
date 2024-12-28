@@ -507,13 +507,14 @@
             "(48) Final Mix"
         ],
         "rara": [
-            "(I2) ICARUS 2024: Oryon"
+            "(I2) ICARUS 2024: Oryon",
+            "(R2) Ducato: Ragnell: Weijie01"
         ],
         "epica": [
             "(HB5) Hidden Boss: Meercko"
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:01:38.182397",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
