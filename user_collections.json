@@ -775,7 +775,8 @@
             "(168) DxK",
             "(13) Rawbean",
             "(143) Doki",
-            "(150) Spazio"
+            "(150) Spazio",
+            "(118) Sykko"
         ],
         "rara": [
             "(R5) Ducato: Ragnell: NFL",
@@ -787,6 +788,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:42:42.902366",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
