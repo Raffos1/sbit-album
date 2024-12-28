@@ -635,14 +635,16 @@
         "pack_reserve": 7
     },
     "897763379": {
-        "comune": [],
+        "comune": [
+            "(4) Cano"
+        ],
         "rara": [
             "(S3) Masterclass 3: Meercko"
         ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:56:32.474173",
-        "pack_reserve": 9
+        "pack_reserve": 8
     },
     "435399399": {
         "comune": [
