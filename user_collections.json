@@ -36,7 +36,8 @@
         "comune": [
             "(139) Burzof",
             "(42) Mettyu",
-            "(62) Drapion"
+            "(62) Drapion",
+            "(99) GANDIX"
         ],
         "rara": [
             "(S5) Masterclass 3: DaSquid",
@@ -47,6 +48,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T15:34:43.461503",
-        "pack_reserve": 3
+        "pack_reserve": 2
     }
 }
