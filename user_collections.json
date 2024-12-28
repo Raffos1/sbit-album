@@ -86,7 +86,8 @@
         "comune": [
             "(77) ElMartho",
             "(53) Ven",
-            "(135) Tendo"
+            "(135) Tendo",
+            "(106) TheSunTitan"
         ],
         "rara": [
             "(I5) ICARUS 2024: M.Pop0"
@@ -94,6 +95,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T15:43:43.194326",
-        "pack_reserve": 6
+        "pack_reserve": 5
     }
 }
