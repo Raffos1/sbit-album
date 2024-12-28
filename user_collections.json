@@ -401,7 +401,8 @@
     },
     "590524892": {
         "comune": [
-            "(22) Lore"
+            "(22) Lore",
+            "(160) Paky"
         ],
         "rara": [],
         "epica": [
@@ -409,6 +410,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:36:43.485100",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
