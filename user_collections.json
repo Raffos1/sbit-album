@@ -466,12 +466,13 @@
     },
     "274392638": {
         "comune": [
-            "(2) Midoriss TO"
+            "(2) Midoriss TO",
+            "(87) KaraliSmash"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:54:04.490857",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
