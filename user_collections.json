@@ -196,9 +196,11 @@
         "epica": [
             "(LG2) Lost Gem: Rybaia"
         ],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 3"
+        ],
         "last_opened": "2024-12-28T17:07:30.931619",
-        "pack_reserve": 3
+        "pack_reserve": 1
     },
     "119890251": {
         "comune": [
