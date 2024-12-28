@@ -219,8 +219,10 @@
         ],
         "rara": [],
         "epica": [],
-        "leggendaria": [],
-        "pack_reserve": 9,
+        "leggendaria": [
+            "ALT ART 2"
+        ],
+        "pack_reserve": 8,
         "last_opened": "2024-12-28T18:40:33.822178"
     },
     "924306650": {
