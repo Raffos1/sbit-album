@@ -700,9 +700,11 @@
             "(R3) Ducato: Ragnell: y0lT"
         ],
         "epica": [],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 2"
+        ],
         "last_opened": "2024-12-28T19:22:43.559657",
-        "pack_reserve": 1
+        "pack_reserve": 0
     },
     "271766708": {
         "comune": [
