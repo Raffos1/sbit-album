@@ -3,6 +3,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQuer
 import os
 import random
 import json
+import re
 import requests
 from datetime import datetime, timedelta
 from base64 import b64decode, b64encode
@@ -46,6 +47,10 @@ def load_collections():
         user_collections = json.loads(data)
     else:
         print("Nessuna collezione trovata su GitHub. Creazione nuova...")
+
+def normalize_filename(text):
+    # Rimuove caratteri non validi per i nomi di file
+    return re.sub(r'[<>:"/\\|?*]', '', text)
         
 def escape_markdown(text):
     escape_chars = ['_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!']
@@ -183,7 +188,7 @@ async def apri(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         save_collections()  # Salva la collezione aggiornata
 
         # Path per l'immagine della carta
-        image_path = os.path.join("immagini", f"{card}.png")
+        image_path = os.path.join("immagini", f"{normalize_filename(card)}.png")
 
         if os.path.isfile(image_path):
             try:
