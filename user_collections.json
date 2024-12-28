@@ -381,7 +381,8 @@
             "(41) Exile",
             "(163) Ryusei",
             "(158) Jigglypoly",
-            "(154) Bless"
+            "(154) Bless",
+            "(0) Deniso"
         ],
         "rara": [
             "(R5) Ducato: Ragnell: NFL"
@@ -392,6 +393,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:33:25.187927",
-        "pack_reserve": 3
+        "pack_reserve": 2
     }
 }
