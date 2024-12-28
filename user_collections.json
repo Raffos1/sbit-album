@@ -729,7 +729,8 @@
             "(133) lazycomet",
             "(178) Spettrofotometro",
             "(14) Signor_Lei",
-            "(149) Picio"
+            "(149) Picio",
+            "(54) Weijie01"
         ],
         "rara": [],
         "epica": [
@@ -738,6 +739,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:23:50.127175",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
