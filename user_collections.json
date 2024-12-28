@@ -753,9 +753,11 @@
             "(172) Ndrept"
         ],
         "rara": [],
-        "epica": [],
+        "epica": [
+            "(LG3) Lost Gem: Vincent"
+        ],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:31:49.650139",
-        "pack_reserve": 4
+        "pack_reserve": 3
     }
 }
