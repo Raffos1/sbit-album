@@ -624,10 +624,12 @@
             "(2) Midoriss TO",
             "(82) Francyyy"
         ],
-        "rara": [],
+        "rara": [
+            "(S8) Masterclass 3: MVarmata"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:37:22.601737",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
