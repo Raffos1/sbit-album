@@ -586,10 +586,12 @@
             "(56) Zhab"
         ],
         "rara": [],
-        "epica": [],
+        "epica": [
+            "(CC4) Community Chosen: Vittoria M4E vs Bloom4Eva"
+        ],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:17:37.822497",
-        "pack_reserve": 8
+        "pack_reserve": 7
     },
     "955388363": {
         "comune": [],
