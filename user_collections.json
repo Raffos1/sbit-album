@@ -376,9 +376,11 @@
             "(163) Ryusei"
         ],
         "rara": [],
-        "epica": [],
+        "epica": [
+            "(HB5) Hidden Boss: Meercko"
+        ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:33:25.187927",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
