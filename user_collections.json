@@ -251,8 +251,10 @@
         "epica": [
             "(CC3) Community Chosen: Midoriss e i ventilatori"
         ],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 21"
+        ],
         "last_opened": "2024-12-28T17:11:33.363172",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
