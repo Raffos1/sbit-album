@@ -372,12 +372,13 @@
     },
     "543040202": {
         "comune": [
-            "(41) Exile"
+            "(41) Exile",
+            "(163) Ryusei"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:33:25.187927",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
