@@ -523,10 +523,12 @@
             "(55) y0lT",
             "(136) Voix"
         ],
-        "rara": [],
+        "rara": [
+            "(R6) Ducato: Ragnell: Forze"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:07:58.404746",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
