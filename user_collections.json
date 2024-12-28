@@ -322,10 +322,11 @@
         "comune": [],
         "rara": [],
         "epica": [
-            "(LG1) Lost Gem: Enygma"
+            "(LG1) Lost Gem: Enygma",
+            "(LG6) Lost Gem: Loci_AF"
         ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:23:17.174102",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
