@@ -433,10 +433,12 @@
         "comune": [
             "(129) Deerd"
         ],
-        "rara": [],
+        "rara": [
+            "(S4) Masterclass 3: NFL"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:43:52.319067",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
