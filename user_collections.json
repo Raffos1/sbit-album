@@ -404,9 +404,11 @@
             "(22) Lore"
         ],
         "rara": [],
-        "epica": [],
+        "epica": [
+            "(LG2) Lost Gem: Rybaia"
+        ],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:36:43.485100",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
