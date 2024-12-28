@@ -214,10 +214,14 @@
         "pack_reserve": 9
     },
     "5059521338": {
-        "comune": [],
+        "comune": [
+            "(79) IchnoSmash"
+        ],
         "rara": [],
         "epica": [],
-        "leggendaria": []
+        "leggendaria": [],
+        "pack_reserve": 9,
+        "last_opened": "2024-12-28T17:40:13.747588"
     },
     "924306650": {
         "comune": [
