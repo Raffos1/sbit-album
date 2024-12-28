@@ -231,8 +231,7 @@
             "(94) Skydago",
             "(105) ShiYa",
             "(46) ccactuss",
-            "(73) Burglur",
-            "(157) ggentlemenn"
+            "(73) Burglur"
         ],
         "rara": [
             "(I2) ICARUS 2024: Oryon",
@@ -242,7 +241,7 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:10:46.043545",
-        "pack_reserve": 2
+        "pack_reserve": 0
     },
     "257989249": {
         "comune": [
@@ -297,6 +296,16 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T17:15:04.293285",
+        "pack_reserve": 9
+    },
+    "124427489": {
+        "comune": [
+            "(91) Kartina"
+        ],
+        "rara": [],
+        "epica": [],
+        "leggendaria": [],
+        "last_opened": "2024-12-28T17:21:26.694286",
         "pack_reserve": 9
     }
 }
