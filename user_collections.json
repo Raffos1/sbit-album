@@ -645,13 +645,15 @@
         "pack_reserve": 9
     },
     "435399399": {
-        "comune": [],
+        "comune": [
+            "(165) ToSmash"
+        ],
         "rara": [
             "(I5) ICARUS 2024: M.Pop0"
         ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-28T19:06:58.278720",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
