@@ -529,9 +529,11 @@
         "rara": [
             "(R6) Ducato: Ragnell: Forze"
         ],
-        "epica": [],
+        "epica": [
+            "(CC3) Community Chosen: Midoriss e i ventilatori"
+        ],
         "leggendaria": [],
         "last_opened": "2024-12-28T18:07:58.404746",
-        "pack_reserve": 3
+        "pack_reserve": 2
     }
 }
