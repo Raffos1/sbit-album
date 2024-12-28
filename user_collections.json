@@ -247,7 +247,9 @@
         "comune": [
             "(135) Tendo"
         ],
-        "rara": [],
+        "rara": [
+            "(S8) Masterclass 3: MVarmata"
+        ],
         "epica": [
             "(CC3) Community Chosen: Midoriss e i ventilatori"
         ],
@@ -255,6 +257,6 @@
             "ALT ART 21"
         ],
         "last_opened": "2024-12-28T17:11:33.363172",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
