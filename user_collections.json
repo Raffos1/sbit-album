@@ -408,7 +408,9 @@
             "(71) GrifoSmash",
             "(139) Burzof"
         ],
-        "rara": [],
+        "rara": [
+            "(S5) Masterclass 3: DaSquid"
+        ],
         "epica": [
             "(LG2) Lost Gem: Rybaia"
         ],
@@ -416,6 +418,6 @@
             "ALT ART 18"
         ],
         "last_opened": "2024-12-28T17:36:43.485100",
-        "pack_reserve": 4
+        "pack_reserve": 2
     }
 }
