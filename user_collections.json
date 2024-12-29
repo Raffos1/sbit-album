@@ -932,9 +932,11 @@
             "(R4) Ducato: Ragnell: Meercko"
         ],
         "epica": [],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 9"
+        ],
         "last_opened": "2024-12-29T18:59:02.459963",
-        "pack_reserve": 3
+        "pack_reserve": 2
     },
     "279304298": {
         "comune": [
