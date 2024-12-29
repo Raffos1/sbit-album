@@ -984,11 +984,13 @@
             "(52) Tunalink",
             "(140) Cacca Dura"
         ],
-        "rara": [],
+        "rara": [
+            "(I3) ICARUS 2024: Ente"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-29T13:27:18.782008",
-        "pack_reserve": 1
+        "pack_reserve": 0
     },
     "450001946": {
         "comune": [
