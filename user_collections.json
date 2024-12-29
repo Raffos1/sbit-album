@@ -1070,12 +1070,13 @@
     },
     "778297075": {
         "comune": [
-            "(9) Midoriss"
+            "(9) Midoriss",
+            "(6) Geoffo"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-29T15:04:14.874307",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
