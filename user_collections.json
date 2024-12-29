@@ -973,12 +973,13 @@
     },
     "109544991": {
         "comune": [
-            "(85) Kyoma"
+            "(85) Kyoma",
+            "(133) lazycomet"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-29T13:27:18.782008",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
