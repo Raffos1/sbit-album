@@ -882,7 +882,8 @@
             "(57) Elysium",
             "(0) Deniso",
             "(142) Cu-Stefano",
-            "(65) Lync"
+            "(65) Lync",
+            "(86) LegendDario"
         ],
         "rara": [],
         "epica": [
@@ -892,6 +893,6 @@
             "ALT ART 6"
         ],
         "last_opened": "2024-12-29T11:41:48.075703",
-        "pack_reserve": 4
+        "pack_reserve": 3
     }
 }
