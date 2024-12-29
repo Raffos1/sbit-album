@@ -879,12 +879,13 @@
     },
     "948265813": {
         "comune": [
-            "(57) Elysium"
+            "(57) Elysium",
+            "(0) Deniso"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-29T11:41:48.075703",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
