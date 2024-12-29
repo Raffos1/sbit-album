@@ -884,11 +884,13 @@
             "(142) Cu-Stefano"
         ],
         "rara": [],
-        "epica": [],
+        "epica": [
+            "(LG3) Lost Gem: Vincent"
+        ],
         "leggendaria": [
             "ALT ART 6"
         ],
         "last_opened": "2024-12-29T11:41:48.075703",
-        "pack_reserve": 6
+        "pack_reserve": 5
     }
 }
