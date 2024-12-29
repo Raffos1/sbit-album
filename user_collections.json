@@ -1062,11 +1062,13 @@
         "comune": [
             "(89) Gionno"
         ],
-        "rara": [],
+        "rara": [
+            "(R6) Ducato: Ragnell: Forze"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-29T14:55:21.387654",
-        "pack_reserve": 9
+        "pack_reserve": 8
     },
     "778297075": {
         "comune": [
