@@ -992,12 +992,13 @@
     },
     "450001946": {
         "comune": [
-            "(117) Shad"
+            "(117) Shad",
+            "(4) Cano"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-29T13:27:51.525669",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
