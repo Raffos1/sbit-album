@@ -885,8 +885,10 @@
         ],
         "rara": [],
         "epica": [],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 6"
+        ],
         "last_opened": "2024-12-29T11:41:48.075703",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
