@@ -880,12 +880,13 @@
     "948265813": {
         "comune": [
             "(57) Elysium",
-            "(0) Deniso"
+            "(0) Deniso",
+            "(142) Cu-Stefano"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-29T11:41:48.075703",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
