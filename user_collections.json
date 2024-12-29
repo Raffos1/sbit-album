@@ -838,7 +838,8 @@
     "154947757": {
         "comune": [
             "(34) GA",
-            "(173) Oshawott2206"
+            "(173) Oshawott2206",
+            "(153) Alby"
         ],
         "rara": [
             "(I8) ICARUS 2024: quiK"
@@ -846,6 +847,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-29T01:44:19.019406",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
