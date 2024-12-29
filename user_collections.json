@@ -923,7 +923,9 @@
             "(86) LegendDario",
             "(78) Jimmy"
         ],
-        "rara": [],
+        "rara": [
+            "(I4) ICARUS 2024: Susu"
+        ],
         "epica": [
             "(LG3) Lost Gem: Vincent"
         ],
@@ -931,7 +933,7 @@
             "ALT ART 6"
         ],
         "last_opened": "2024-12-29T11:41:48.075703",
-        "pack_reserve": 2
+        "pack_reserve": 1
     },
     "72024202": {
         "comune": [
