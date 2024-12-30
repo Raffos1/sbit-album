@@ -361,7 +361,8 @@
             "(36) Kiavik",
             "(161) Pigna",
             "(92) Sadler",
-            "(40) Pierfra"
+            "(40) Pierfra",
+            "(54) Weijie01"
         ],
         "rara": [
             "(I5) ICARUS 2024: M.Pop0",
@@ -371,7 +372,7 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2024-12-30T15:36:07.088270",
-        "pack_reserve": 2
+        "pack_reserve": 0
     },
     "651176805": {
         "comune": [
@@ -806,7 +807,7 @@
             "ALT ART 2"
         ],
         "last_opened": "2024-12-30T15:36:07.918919",
-        "pack_reserve": 2
+        "pack_reserve": 1
     },
     "271766708": {
         "comune": [
