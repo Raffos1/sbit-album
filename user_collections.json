@@ -390,9 +390,11 @@
             "(I8) ICARUS 2024: quiK"
         ],
         "epica": [],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 20"
+        ],
         "last_opened": "2025-01-01T22:30:06.796771",
-        "pack_reserve": 1
+        "pack_reserve": 0
     },
     "651176805": {
         "comune": [
