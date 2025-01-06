@@ -1250,7 +1250,8 @@
             "(131) Hylien",
             "(36) Kiavik",
             "(86) LegendDario",
-            "(113) firstbones"
+            "(113) firstbones",
+            "(85) Kyoma"
         ],
         "rara": [
             "(R6) Ducato: Ragnell: Forze"
@@ -1258,6 +1259,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-01-06T15:52:04.624541",
-        "pack_reserve": 4
+        "pack_reserve": 2
     }
 }
