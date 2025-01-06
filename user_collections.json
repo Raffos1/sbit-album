@@ -1250,10 +1250,12 @@
             "(131) Hylien",
             "(36) Kiavik"
         ],
-        "rara": [],
+        "rara": [
+            "(R6) Ducato: Ragnell: Forze"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-01-06T15:52:04.624541",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
