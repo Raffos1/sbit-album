@@ -49,7 +49,8 @@
             "(101) Mia Nonna",
             "(150) Spazio",
             "(175) Ragazzo Sam",
-            "(164) Sim-Max"
+            "(164) Sim-Max",
+            "(52) Tunalink"
         ],
         "rara": [
             "(I4) ICARUS 2024: Susu",
@@ -66,7 +67,7 @@
             "(LG5) Lost Gem: Lanz"
         ],
         "leggendaria": [],
-        "pack_reserve": 4,
+        "pack_reserve": 3,
         "last_opened": "2025-01-08T14:29:50.757301"
     },
     "5012647184": {
