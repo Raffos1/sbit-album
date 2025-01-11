@@ -1,9 +1,16 @@
 {
     "valid_codes": {
-        "BIRTHDAYBASH": {"reward": "10_pacchetti"}
+        "BIRTHDAYBASH": {
+            "reward": "10_pacchetti"
+        }
     },
     "used_codes": {
-        "user_id_1": ["BIRTHDAYBASH"],
-        "user_id_2": []
+        "user_id_1": [
+            "BIRTHDAYBASH"
+        ],
+        "user_id_2": [],
+        "973326183": [
+            "BIRTHDAYBASH"
+        ]
     }
 }
