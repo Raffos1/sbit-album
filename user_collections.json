@@ -672,12 +672,14 @@
             "(S6) Masterclass 3: Mattyus",
             "(I2) ICARUS 2024: Oryon"
         ],
-        "epica": [],
+        "epica": [
+            "(LG5) Lost Gem: Lanz"
+        ],
         "leggendaria": [
             "ALT ART 12"
         ],
         "last_opened": "2025-01-11T11:22:24.533982",
-        "pack_reserve": 9
+        "pack_reserve": 8
     },
     "543040202": {
         "comune": [
