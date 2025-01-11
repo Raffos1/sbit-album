@@ -1392,10 +1392,12 @@
             "(I3) ICARUS 2024: Ente",
             "(I5) ICARUS 2024: M.Pop0"
         ],
-        "epica": [],
+        "epica": [
+            "(CC5) Community Chosen: Bosco pop-off"
+        ],
         "leggendaria": [],
         "last_opened": "2025-01-11T10:01:24.956057",
-        "pack_reserve": 1
+        "pack_reserve": 0
     },
     "450001946": {
         "comune": [
