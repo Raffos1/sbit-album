@@ -1427,7 +1427,8 @@
     "997952417": {
         "comune": [
             "(40) Pierfra",
-            "(63) Karma"
+            "(63) Karma",
+            "(85) Kyoma"
         ],
         "rara": [
             "(I3) ICARUS 2024: Ente",
@@ -1437,6 +1438,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-01-11T09:23:53.182772",
-        "pack_reserve": 5
+        "pack_reserve": 4
     }
 }
