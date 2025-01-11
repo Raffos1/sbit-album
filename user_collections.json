@@ -1611,12 +1611,13 @@
     "1584744509": {
         "comune": [
             "(103) Orochix",
-            "(1) Alma Mater Smashorum"
+            "(1) Alma Mater Smashorum",
+            "(50) Mago"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-01-11T12:06:27.453218",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
