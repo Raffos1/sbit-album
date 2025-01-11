@@ -373,7 +373,7 @@ async def riscatta(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     reward = codes["valid_codes"][code]
     if reward["reward"] == "10_pacchetti":
         user_collections[user_id]["pack_reserve"] += 10
-        await update.message.reply_text("Hai ricevuto dei pacchetti! 🎉")
+        await update.message.reply_text("Hai ricevuto 10 pacchetti! 🎉")
     elif reward["reward"] == "carta_esclusiva":
         card_name = reward["card_name"]
         user_collections[user_id]["leggendaria"].append(card_name)
