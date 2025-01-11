@@ -1428,10 +1428,12 @@
         "comune": [
             "(40) Pierfra"
         ],
-        "rara": [],
+        "rara": [
+            "(I3) ICARUS 2024: Ente"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-01-11T09:23:53.182772",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
