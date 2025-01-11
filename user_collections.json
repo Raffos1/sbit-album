@@ -619,9 +619,11 @@
             "(HB4) Hidden Boss: Mapiz",
             "(CC2) Community Chosen: Piero che zittisce la folla"
         ],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 12"
+        ],
         "last_opened": "2025-01-11T08:55:03.147958",
-        "pack_reserve": 7
+        "pack_reserve": 6
     },
     "590524892": {
         "comune": [
