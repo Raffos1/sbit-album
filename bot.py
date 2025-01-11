@@ -291,6 +291,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         "- /apri: Scopri quale carta ottieni!\n"
         "- /pacchetti: Controlla il numero di pacchetti disponibili.\n"
         "- /collezione: Visualizza la tua collezione!\n"
+        "- /riscatta: Riscatta un codice!\n"
         "- /reset: Cancella la tua collezione.\n"
         "- /bash: Iscriviti al Raffo's Birthday Bash!\n"
         "- /about: Informazioni sul bot.\n"
