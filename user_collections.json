@@ -1648,10 +1648,12 @@
             "(90) Irene",
             "(80) LegendDario TO"
         ],
-        "rara": [],
+        "rara": [
+            "(R2) Ducato: Ragnell: Weijie01"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-01-11T12:51:22.178852",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
