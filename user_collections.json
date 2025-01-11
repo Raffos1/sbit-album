@@ -1543,10 +1543,12 @@
         "comune": [
             "(67) Mattyus"
         ],
-        "rara": [],
+        "rara": [
+            "(I6) ICARUS 2024: y0lT"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-01-11T11:06:03.292460",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
