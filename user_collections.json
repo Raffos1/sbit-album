@@ -761,10 +761,14 @@
         "pack_reserve": 0
     },
     "911177756": {
-        "comune": [],
+        "comune": [
+            "(69) Queen"
+        ],
         "rara": [],
         "epica": [],
-        "leggendaria": []
+        "leggendaria": [],
+        "pack_reserve": 9,
+        "last_opened": "2025-01-11T11:07:44.805246"
     },
     "946259224": {
         "comune": [
