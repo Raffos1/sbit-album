@@ -10,6 +10,7 @@ from base64 import b64decode, b64encode
 
 GITHUB_REPO = "Raffos1/sbit-album"
 GITHUB_FILE_PATH = "user_collections.json"
+GITHUB_CODES_FILE_PATH = "codes.json"
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN")
 
 # File delle carte organizzati per rarità
@@ -47,6 +48,24 @@ def load_collections():
         user_collections = json.loads(data)
     else:
         print("Nessuna collezione trovata su GitHub. Creazione nuova...")
+        
+def load_codes_from_github():
+    url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_CODES_FILE_PATH}"
+    headers = {"Authorization": f"token {GITHUB_TOKEN}", "Accept": "application/vnd.github.v3+json"}
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        content = response.json()
+        return json.loads(b64decode(content['content']).decode('utf-8'))
+    return {"valid_codes": {}, "used_codes": []}
+
+def save_codes_to_github(codes):
+    url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_CODES_FILE_PATH}"
+    headers = {"Authorization": f"token {GITHUB_TOKEN}", "Accept": "application/vnd.github.v3+json"}
+    response = requests.get(url, headers=headers)
+    sha = response.json().get('sha', None)
+    encoded_data = b64encode(json.dumps(codes, indent=4).encode('utf-8')).decode('utf-8')
+    payload = {"message": "Aggiornamento codici", "content": encoded_data, "sha": sha}
+    requests.put(url, headers=headers, json=payload)
 
 def normalize_filename(text):
     # Rimuove caratteri non validi per i nomi di file
@@ -322,6 +341,53 @@ async def pacchetti(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         f"🃏 **Aperture rimanenti:** {pack_reserve}",
         parse_mode="Markdown"
     )
+    
+async def riscatta(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Comando /riscatta per riscattare un codice."""
+    user = update.effective_user
+    user_id = str(user.id)
+
+    # Verifica se l'utente ha inviato un codice
+    if not context.args:
+        await update.message.reply_text("Per favore, usa il comando così: /riscatta <codice>")
+        return
+
+    code = context.args[0].strip()
+    codes = load_codes_from_github()
+
+    # Verifica se il codice è valido
+    if code not in codes["valid_codes"]:
+        await update.message.reply_text("Codice non valido!")
+        return
+
+    # Recupera i codici riscattati dall'utente
+    user_used_codes = codes["used_codes"].get(user_id, [])
+
+    # Verifica se l'utente ha già riscattato il codice
+    if code in user_used_codes:
+        await update.message.reply_text("Hai già riscattato questo codice!")
+        return
+
+    # Riscatta il codice e assegna il premio
+    reward = codes["valid_codes"][code]
+    if reward["reward"] == "18_pacchetti":
+        user_collections[user_id]["pack_reserve"] += 18
+        await update.message.reply_text("Hai ricevuto 18 pacchetti! 🎉")
+    elif reward["reward"] == "carta_esclusiva":
+        card_name = reward["card_name"]
+        user_collections[user_id]["leggendaria"].append(card_name)
+        await update.message.reply_text(f"Hai ricevuto una carta esclusiva: {card_name}! 🎴")
+
+    # Segna il codice come riscattato dall'utente
+    if user_id not in codes["used_codes"]:
+        codes["used_codes"][user_id] = []
+    codes["used_codes"][user_id].append(code)
+
+    # Salva i codici e le collezioni aggiornate
+    save_codes_to_github(codes)
+    save_collections()
+
+    print(f"L'utente {user_id} ha riscattato il codice {code}.")
 
 async def about(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Comando /about per informazioni sul bot."""
@@ -417,9 +483,10 @@ def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("apri", apri))
     application.add_handler(CommandHandler("collezione", collezione))
+    application.add_handler(CommandHandler("pacchetti", pacchetti))
     application.add_handler(CommandHandler("help", help))
     application.add_handler(CommandHandler("bash", bash))
-    application.add_handler(CommandHandler("pacchetti", pacchetti))
+    application.add_handler(CommandHandler("riscatta", riscatta))
     application.add_handler(CommandHandler("about", about))
     application.add_handler(CommandHandler("reset", reset))
     application.add_handler(CallbackQueryHandler(button))
