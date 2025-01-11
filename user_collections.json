@@ -89,7 +89,7 @@
             "(LG4) Lost Gem: Bluelink"
         ],
         "leggendaria": [],
-        "pack_reserve": 1,
+        "pack_reserve": 0,
         "last_opened": "2025-01-11T08:40:05.720746"
     },
     "5012647184": {
@@ -186,9 +186,11 @@
             "(I5) ICARUS 2024: M.Pop0"
         ],
         "epica": [],
-        "leggendaria": [],
-        "last_opened": "2024-12-28T15:43:43.194326",
-        "pack_reserve": 0
+        "leggendaria": [
+            "ALT ART 6"
+        ],
+        "last_opened": "2025-01-11T08:52:56.916898",
+        "pack_reserve": 4
     },
     "989288306": {
         "comune": [
