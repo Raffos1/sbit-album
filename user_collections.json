@@ -584,13 +584,15 @@
             "(S1) Masterclass 3: y0lT",
             "(S5) Masterclass 3: DaSquid"
         ],
-        "epica": [],
+        "epica": [
+            "(LG3) Lost Gem: Vincent"
+        ],
         "leggendaria": [
             "ALT ART 20",
             "ALT ART 9"
         ],
         "last_opened": "2025-01-11T14:05:52.138077",
-        "pack_reserve": 3
+        "pack_reserve": 2
     },
     "651176805": {
         "comune": [
