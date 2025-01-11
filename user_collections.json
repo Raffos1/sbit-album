@@ -1437,9 +1437,11 @@
             "(S5) Masterclass 3: DaSquid",
             "(S3) Masterclass 3: Meercko"
         ],
-        "epica": [],
+        "epica": [
+            "(CC5) Community Chosen: Bosco pop-off"
+        ],
         "leggendaria": [],
         "last_opened": "2025-01-11T09:23:53.182772",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
