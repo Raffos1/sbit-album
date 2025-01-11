@@ -1648,7 +1648,8 @@
             "(90) Irene",
             "(80) LegendDario TO",
             "(162) Raicuta",
-            "(128) D.I.B.L."
+            "(128) D.I.B.L.",
+            "(91) Kartina"
         ],
         "rara": [
             "(R2) Ducato: Ragnell: Weijie01"
@@ -1658,6 +1659,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2025-01-11T12:51:22.178852",
-        "pack_reserve": 4
+        "pack_reserve": 3
     }
 }
