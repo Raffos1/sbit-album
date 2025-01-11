@@ -1551,7 +1551,8 @@
             "(15) Altomare Smash",
             "(28) Zio Al",
             "(43) Ducato di Milano",
-            "(138) DpAndrew TO"
+            "(138) DpAndrew TO",
+            "(111) AeroPancake"
         ],
         "rara": [
             "(I6) ICARUS 2024: y0lT",
@@ -1560,6 +1561,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-01-11T11:06:03.292460",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
