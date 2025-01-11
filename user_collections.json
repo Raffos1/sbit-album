@@ -1652,9 +1652,11 @@
         "rara": [
             "(R2) Ducato: Ragnell: Weijie01"
         ],
-        "epica": [],
+        "epica": [
+            "(HB2) Hidden Boss: Foster_Golden"
+        ],
         "leggendaria": [],
         "last_opened": "2025-01-11T12:51:22.178852",
-        "pack_reserve": 6
+        "pack_reserve": 5
     }
 }
