@@ -792,14 +792,15 @@
             "(I5) ICARUS 2024: M.Pop0"
         ],
         "epica": [
-            "(LG2) Lost Gem: Rybaia"
+            "(LG2) Lost Gem: Rybaia",
+            "(HB5) Hidden Boss: Meercko"
         ],
         "leggendaria": [
             "ALT ART 18",
             "ALT ART 19"
         ],
         "last_opened": "2025-01-12T01:36:32.416030",
-        "pack_reserve": 1
+        "pack_reserve": 0
     },
     "911177756": {
         "comune": [
