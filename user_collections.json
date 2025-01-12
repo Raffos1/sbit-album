@@ -89,7 +89,8 @@
             "(R4) Ducato: Ragnell: Meercko",
             "(R8) Ducato: Ragnell: Genarog",
             "(I5) ICARUS 2024: M.Pop0",
-            "(I7) ICARUS 2024: Donut"
+            "(I7) ICARUS 2024: Donut",
+            "(S5) Masterclass 3: DaSquid"
         ],
         "epica": [
             "(LG5) Lost Gem: Lanz",
@@ -98,7 +99,7 @@
             "(LG4) Lost Gem: Bluelink"
         ],
         "leggendaria": [],
-        "pack_reserve": 4,
+        "pack_reserve": 3,
         "last_opened": "2025-01-12T01:37:30.852609"
     },
     "5012647184": {
