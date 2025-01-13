@@ -1321,13 +1321,15 @@
             "(42) Mettyu",
             "(49) Genarog"
         ],
-        "rara": [],
+        "rara": [
+            "(I7) ICARUS 2024: Donut"
+        ],
         "epica": [
             "(LG3) Lost Gem: Vincent"
         ],
         "leggendaria": [],
-        "last_opened": "2025-01-11T08:53:14.197807",
-        "pack_reserve": 0
+        "last_opened": "2025-01-13T13:46:08.750732",
+        "pack_reserve": 4
     },
     "241882038": {
         "comune": [],
