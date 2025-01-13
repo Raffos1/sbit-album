@@ -1732,7 +1732,8 @@
             "(2) Midoriss TO",
             "(143) Doki",
             "(65) Lync",
-            "(12) ProMeteor"
+            "(12) ProMeteor",
+            "(69) Queen"
         ],
         "rara": [
             "(R2) Ducato: Ragnell: Weijie01"
@@ -1742,6 +1743,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2025-01-13T07:08:12.241459",
-        "pack_reserve": 4
+        "pack_reserve": 3
     }
 }
