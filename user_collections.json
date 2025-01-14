@@ -1760,12 +1760,13 @@
     },
     "353990871": {
         "comune": [
-            "(107) Tiger"
+            "(107) Tiger",
+            "(151) Terrons Crew"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-01-14T00:19:56.537734",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
