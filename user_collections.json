@@ -400,7 +400,8 @@
             "(128) D.I.B.L.",
             "(47) DonCascone",
             "(141) Corien",
-            "(52) Tunalink"
+            "(52) Tunalink",
+            "(5) Extrick"
         ],
         "rara": [
             "(S8) Masterclass 3: MVarmata",
@@ -413,7 +414,7 @@
         "leggendaria": [
             "ALT ART 2"
         ],
-        "pack_reserve": 1,
+        "pack_reserve": 0,
         "last_opened": "2025-01-15T12:31:05.407666"
     },
     "924306650": {
