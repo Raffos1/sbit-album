@@ -98,7 +98,8 @@
             "(I5) ICARUS 2024: M.Pop0",
             "(I7) ICARUS 2024: Donut",
             "(S5) Masterclass 3: DaSquid",
-            "(R7) Ducato: Ragnell: Siron"
+            "(R7) Ducato: Ragnell: Siron",
+            "(I1) ICARUS 2024: Bloom4Eva"
         ],
         "epica": [
             "(LG5) Lost Gem: Lanz",
@@ -108,7 +109,7 @@
             "(HB3) Hidden Boss: M4E"
         ],
         "leggendaria": [],
-        "pack_reserve": 4,
+        "pack_reserve": 3,
         "last_opened": "2025-01-15T12:42:23.828549"
     },
     "5012647184": {
