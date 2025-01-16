@@ -1698,7 +1698,8 @@
             "(66) Manhattan",
             "(107) Tiger",
             "(164) Sim-Max",
-            "(84) Jerko"
+            "(84) Jerko",
+            "(33) Claude"
         ],
         "rara": [
             "(I3) ICARUS 2024: Ente",
@@ -1715,7 +1716,7 @@
             "ALT ART 11"
         ],
         "last_opened": "2025-01-16T22:12:25.674764",
-        "pack_reserve": 1
+        "pack_reserve": 0
     },
     "1135691347": {
         "comune": [
