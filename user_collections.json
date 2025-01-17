@@ -1434,9 +1434,11 @@
         "epica": [
             "(CC2) Community Chosen: Piero che zittisce la folla"
         ],
-        "leggendaria": [],
+        "leggendaria": [
+            "ALT ART 22"
+        ],
         "last_opened": "2025-01-17T14:53:56.740164",
-        "pack_reserve": 4
+        "pack_reserve": 3
     },
     "1481543029": {
         "comune": [
