@@ -94,7 +94,8 @@
             "(129) Deerd",
             "(115) LorenzoMS",
             "(38) Luffy",
-            "(123) Smash Piemonte"
+            "(123) Smash Piemonte",
+            "(111) AeroPancake"
         ],
         "rara": [
             "(I4) ICARUS 2024: Susu",
@@ -120,8 +121,8 @@
             "(HB3) Hidden Boss: M4E"
         ],
         "leggendaria": [],
-        "pack_reserve": 0,
-        "last_opened": "2025-01-19T19:26:38.394361"
+        "pack_reserve": 4,
+        "last_opened": "2025-01-20T13:37:59.149408"
     },
     "5012647184": {
         "comune": [
@@ -1292,7 +1293,7 @@
             "ALT ART 2"
         ],
         "last_opened": "2025-01-20T13:36:39.931277",
-        "pack_reserve": 1
+        "pack_reserve": 0
     },
     "271766708": {
         "comune": [
