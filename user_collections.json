@@ -124,7 +124,7 @@
             "(HB3) Hidden Boss: M4E"
         ],
         "leggendaria": [],
-        "pack_reserve": 1,
+        "pack_reserve": 0,
         "last_opened": "2025-01-20T13:37:59.149408"
     },
     "5012647184": {
@@ -1352,7 +1352,8 @@
             "(125) Azryel",
             "(132) Ink",
             "(139) Burzof",
-            "(30) Luffy"
+            "(30) Luffy",
+            "(102) Naive"
         ],
         "rara": [
             "(S6) Masterclass 3: Mattyus",
@@ -1369,8 +1370,8 @@
             "(CC3) Community Chosen: Midoriss e i ventilatori"
         ],
         "leggendaria": [],
-        "last_opened": "2025-01-19T16:30:25.061746",
-        "pack_reserve": 2
+        "last_opened": "2025-01-20T13:39:08.661142",
+        "pack_reserve": 5
     },
     "840988003": {
         "comune": [
