@@ -1809,7 +1809,8 @@
             "(119) Syntherface",
             "(120) Yazbat",
             "(110) il socio",
-            "(22) Lore"
+            "(22) Lore",
+            "(150) Spazio"
         ],
         "rara": [
             "(I3) ICARUS 2024: Ente",
@@ -1827,8 +1828,8 @@
         "leggendaria": [
             "ALT ART 11"
         ],
-        "last_opened": "2025-01-22T21:26:03.206133",
-        "pack_reserve": 0
+        "last_opened": "2025-01-24T10:15:42.584049",
+        "pack_reserve": 4
     },
     "1135691347": {
         "comune": [
