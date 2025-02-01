@@ -106,7 +106,8 @@
             "(102) Naive",
             "(153) Alby",
             "(51) Siron",
-            "(64) Lonke"
+            "(64) Lonke",
+            "(159) Margi"
         ],
         "rara": [
             "(I4) ICARUS 2024: Susu",
@@ -134,7 +135,7 @@
             "(HB3) Hidden Boss: M4E"
         ],
         "leggendaria": [],
-        "pack_reserve": 1,
+        "pack_reserve": 0,
         "last_opened": "2025-02-01T00:26:02.658081"
     },
     "5012647184": {
