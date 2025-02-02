@@ -2022,7 +2022,8 @@
             "(149) Picio",
             "(24) One O'Seven",
             "(53) Ven",
-            "(44) Cluoddo e DonCascone TO"
+            "(44) Cluoddo e DonCascone TO",
+            "(98) Gallax"
         ],
         "rara": [
             "(S5) Masterclass 3: DaSquid"
@@ -2030,6 +2031,6 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-02-02T11:14:11.838917",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
