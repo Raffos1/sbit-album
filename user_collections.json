@@ -2004,12 +2004,13 @@
     },
     "193025867": {
         "comune": [
-            "(136) Voix"
+            "(136) Voix",
+            "(142) Cu-Stefano"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-02-02T11:11:38.611809",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
