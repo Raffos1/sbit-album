@@ -1914,7 +1914,7 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-02-02T11:06:01.414143",
-        "pack_reserve": 1
+        "pack_reserve": 0
     },
     "421130999": {
         "comune": [
@@ -1980,6 +1980,16 @@
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-01-21T08:52:36.640856",
+        "pack_reserve": 9
+    },
+    "6585941858": {
+        "comune": [
+            "(164) Sim-Max"
+        ],
+        "rara": [],
+        "epica": [],
+        "leggendaria": [],
+        "last_opened": "2025-02-02T11:06:40.737788",
         "pack_reserve": 9
     }
 }
