@@ -1984,12 +1984,13 @@
     },
     "6585941858": {
         "comune": [
-            "(164) Sim-Max"
+            "(164) Sim-Max",
+            "(89) Gionno"
         ],
         "rara": [],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-02-02T11:06:40.737788",
-        "pack_reserve": 9
+        "pack_reserve": 8
     }
 }
