@@ -1988,10 +1988,12 @@
             "(89) Gionno",
             "(144) DpAndrew"
         ],
-        "rara": [],
+        "rara": [
+            "(R5) Ducato: Ragnell: NFL"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-02-02T11:06:40.737788",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
