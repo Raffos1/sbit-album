@@ -2042,7 +2042,8 @@
     "528777872": {
         "comune": [
             "(164) Sim-Max",
-            "(169) Fede64"
+            "(169) Fede64",
+            "(37) Kurabu"
         ],
         "rara": [],
         "epica": [
@@ -2050,6 +2051,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2025-02-03T14:20:01.087803",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
