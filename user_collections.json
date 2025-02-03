@@ -2050,13 +2050,14 @@
             "(119) Syntherface"
         ],
         "rara": [
-            "(R3) Ducato: Ragnell: y0lT"
+            "(R3) Ducato: Ragnell: y0lT",
+            "(R8) Ducato: Ragnell: Genarog"
         ],
         "epica": [
             "(HB4) Hidden Boss: Mapiz"
         ],
         "leggendaria": [],
         "last_opened": "2025-02-03T14:20:01.087803",
-        "pack_reserve": 1
+        "pack_reserve": 0
     }
 }
