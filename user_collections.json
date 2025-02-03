@@ -2045,9 +2045,11 @@
             "(169) Fede64"
         ],
         "rara": [],
-        "epica": [],
+        "epica": [
+            "(HB4) Hidden Boss: Mapiz"
+        ],
         "leggendaria": [],
         "last_opened": "2025-02-03T14:20:01.087803",
-        "pack_reserve": 8
+        "pack_reserve": 7
     }
 }
