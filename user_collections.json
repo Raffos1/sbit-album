@@ -2046,7 +2046,8 @@
             "(37) Kurabu",
             "(35) Hastur",
             "(10) MVarmata",
-            "(109) Serenissima Smash"
+            "(109) Serenissima Smash",
+            "(119) Syntherface"
         ],
         "rara": [
             "(R3) Ducato: Ragnell: y0lT"
@@ -2056,6 +2057,6 @@
         ],
         "leggendaria": [],
         "last_opened": "2025-02-03T14:20:01.087803",
-        "pack_reserve": 2
+        "pack_reserve": 1
     }
 }
