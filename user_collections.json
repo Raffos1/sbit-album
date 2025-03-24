@@ -591,7 +591,8 @@
             "(I7) ICARUS 2024: Donut",
             "(S6) Masterclass 3: Mattyus",
             "(R2) Ducato: Ragnell: Weijie01",
-            "(S3) Masterclass 3: Meercko"
+            "(S3) Masterclass 3: Meercko",
+            "(R4) Ducato: Ragnell: Meercko"
         ],
         "epica": [
             "(LG5) Lost Gem: Lanz",
@@ -600,7 +601,7 @@
         ],
         "leggendaria": [],
         "last_opened": "2025-03-24T16:36:25.741311",
-        "pack_reserve": 5
+        "pack_reserve": 4
     },
     "218507173": {
         "comune": [
