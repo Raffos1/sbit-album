@@ -608,11 +608,12 @@
         "epica": [
             "(LG5) Lost Gem: Lanz",
             "(LG6) Lost Gem: Loci_AF",
-            "(HB3) Hidden Boss: M4E"
+            "(HB3) Hidden Boss: M4E",
+            "(HB2) Hidden Boss: Foster_Golden"
         ],
         "leggendaria": [],
-        "last_opened": "2025-04-01T17:09:45.771116",
-        "pack_reserve": 0
+        "last_opened": "2025-04-09T20:49:41.116167",
+        "pack_reserve": 3
     },
     "218507173": {
         "comune": [
