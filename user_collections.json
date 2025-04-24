@@ -1501,13 +1501,15 @@
         "pack_reserve": 0
     },
     "241882038": {
-        "comune": [],
+        "comune": [
+            "(133) lazycomet"
+        ],
         "rara": [],
         "epica": [
             "(HB5) Hidden Boss: Meercko"
         ],
         "leggendaria": [],
-        "last_opened": "2024-12-28T19:34:41.535273",
+        "last_opened": "2025-04-24T08:20:26.762518",
         "pack_reserve": 9
     },
     "2076511453": {
