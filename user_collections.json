@@ -284,7 +284,8 @@
         "rara": [
             "(I5) ICARUS 2024: M.Pop0",
             "(R4) Ducato: Ragnell: Meercko",
-            "(R8) Ducato: Ragnell: Genarog"
+            "(R8) Ducato: Ragnell: Genarog",
+            "(I3) ICARUS 2024: Ente"
         ],
         "epica": [
             "(HB2) Hidden Boss: Foster_Golden",
@@ -293,8 +294,8 @@
         "leggendaria": [
             "ALT ART 6"
         ],
-        "last_opened": "2025-02-04T22:10:03.308976",
-        "pack_reserve": 0
+        "last_opened": "2025-05-11T13:40:43.710587",
+        "pack_reserve": 4
     },
     "989288306": {
         "comune": [
@@ -629,7 +630,7 @@
             "ALT ART 19"
         ],
         "last_opened": "2025-05-11T13:36:21.875822",
-        "pack_reserve": 2
+        "pack_reserve": 0
     },
     "218507173": {
         "comune": [
