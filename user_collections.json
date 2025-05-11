@@ -281,7 +281,8 @@
             "(86) LegendDario",
             "(49) Genarog",
             "(68) PigoPreacher",
-            "(98) Gallax"
+            "(98) Gallax",
+            "(102) Naive"
         ],
         "rara": [
             "(I5) ICARUS 2024: M.Pop0",
@@ -298,7 +299,7 @@
             "ALT ART 6"
         ],
         "last_opened": "2025-05-11T13:40:43.710587",
-        "pack_reserve": 1
+        "pack_reserve": 0
     },
     "989288306": {
         "comune": [
@@ -2142,5 +2143,17 @@
         "leggendaria": [],
         "last_opened": "2025-03-11T16:44:28.600987",
         "pack_reserve": 9
+    },
+    "2010493079": {
+        "comune": [
+            "(87) KaraliSmash",
+            "(22) Lore",
+            "(147) Mattroid"
+        ],
+        "rara": [],
+        "epica": [],
+        "leggendaria": [],
+        "last_opened": "2025-05-11T13:43:38.116664",
+        "pack_reserve": 7
     }
 }
