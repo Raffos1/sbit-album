@@ -2150,10 +2150,12 @@
             "(22) Lore",
             "(147) Mattroid"
         ],
-        "rara": [],
+        "rara": [
+            "(R2) Ducato: Ragnell: Weijie01"
+        ],
         "epica": [],
         "leggendaria": [],
         "last_opened": "2025-05-11T13:43:38.116664",
-        "pack_reserve": 7
+        "pack_reserve": 6
     }
 }
