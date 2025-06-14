@@ -624,7 +624,8 @@
             "(I8) ICARUS 2024: quiK",
             "(I4) ICARUS 2024: Susu",
             "(S2) Masterclass 3: GANDIX",
-            "(I6) ICARUS 2024: y0lT"
+            "(I6) ICARUS 2024: y0lT",
+            "(R8) Ducato: Ragnell: Genarog"
         ],
         "epica": [
             "(LG5) Lost Gem: Lanz",
@@ -639,7 +640,7 @@
             "ALT ART 19"
         ],
         "last_opened": "2025-06-14T08:24:00.671319",
-        "pack_reserve": 2
+        "pack_reserve": 0
     },
     "218507173": {
         "comune": [
