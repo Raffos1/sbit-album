@@ -111,7 +111,8 @@
             "(171) MIG",
             "(94) Skydago",
             "(160) Paky",
-            "(18) Ben97"
+            "(18) Ben97",
+            "(118) Sykko"
         ],
         "rara": [
             "(I4) ICARUS 2024: Susu",
@@ -140,8 +141,8 @@
             "(HB3) Hidden Boss: M4E"
         ],
         "leggendaria": [],
-        "pack_reserve": 2,
-        "last_opened": "2025-02-02T16:18:22.188022"
+        "pack_reserve": 3,
+        "last_opened": "2025-07-18T18:07:07.297720"
     },
     "5012647184": {
         "comune": [
@@ -662,7 +663,7 @@
             "ALT ART 5"
         ],
         "last_opened": "2025-07-18T18:03:32.253378",
-        "pack_reserve": 1
+        "pack_reserve": 0
     },
     "218507173": {
         "comune": [
