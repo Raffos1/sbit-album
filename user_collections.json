@@ -132,7 +132,8 @@
             "(I1) ICARUS 2024: Bloom4Eva",
             "(S3) Masterclass 3: Meercko",
             "(I8) ICARUS 2024: quiK",
-            "(S7) Masterclass 3: Karma"
+            "(S7) Masterclass 3: Karma",
+            "(I2) ICARUS 2024: Oryon"
         ],
         "epica": [
             "(LG5) Lost Gem: Lanz",
@@ -142,8 +143,8 @@
             "(HB3) Hidden Boss: M4E"
         ],
         "leggendaria": [],
-        "pack_reserve": 1,
-        "last_opened": "2025-07-18T18:07:07.297720"
+        "pack_reserve": 3,
+        "last_opened": "2025-09-13T13:32:09.029999"
     },
     "5012647184": {
         "comune": [
