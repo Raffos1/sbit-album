@@ -1269,13 +1269,15 @@
             "(79) IchnoSmash",
             "(7) Jungle"
         ],
-        "rara": [],
+        "rara": [
+            "(R1) Ducato: Ragnell: M4E"
+        ],
         "epica": [
             "(CC4) Community Chosen: Vittoria M4E vs Bloom4Eva"
         ],
         "leggendaria": [],
         "last_opened": "2025-12-05T20:17:32.588309",
-        "pack_reserve": 4
+        "pack_reserve": 2
     },
     "955388363": {
         "comune": [],
