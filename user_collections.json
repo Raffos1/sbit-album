@@ -1270,14 +1270,15 @@
             "(7) Jungle"
         ],
         "rara": [
-            "(R1) Ducato: Ragnell: M4E"
+            "(R1) Ducato: Ragnell: M4E",
+            "(S3) Masterclass 3: Meercko"
         ],
         "epica": [
             "(CC4) Community Chosen: Vittoria M4E vs Bloom4Eva"
         ],
         "leggendaria": [],
         "last_opened": "2025-12-05T20:17:32.588309",
-        "pack_reserve": 2
+        "pack_reserve": 1
     },
     "955388363": {
         "comune": [],
